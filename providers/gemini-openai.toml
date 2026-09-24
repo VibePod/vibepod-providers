@@ -7,4 +7,144 @@ protocol = "openai-chat"
 base_url = "https://generativelanguage.googleapis.com/v1beta/openai"
 auth = "env"
 key_env = "GEMINI_API_KEY"
-models = []
+models = [
+  "deep-research-max-preview-04-2026",
+  "deep-research-preview-04-2026",
+  "gemini-2.5-computer-use-preview-10-2025",
+  "gemini-2.5-flash",
+  "gemini-2.5-flash-lite",
+  "gemini-2.5-pro",
+  "gemini-3-flash-preview",
+  "gemini-3.1-flash-lite",
+  "gemini-3.1-flash-lite-image",
+  "gemini-3.1-flash-live-preview",
+  "gemini-3.1-pro-preview",
+  "gemini-3.1-pro-preview-customtools",
+  "gemini-3.5-flash",
+  "gemini-3.5-flash-lite",
+  "gemini-3.6-flash",
+  "gemini-3.7-flash",
+  "gemini-3.8-flash",
+  "gemini-flash-latest",
+  "gemini-flash-lite-latest",
+  "gemma-4-26b-a4b-it",
+  "gemma-4-31b-it",
+]
+
+[model_settings."deep-research-max-preview-04-2026"]
+context_window = 131072
+max_output_tokens = 65536
+reasoning = true
+
+[model_settings."deep-research-preview-04-2026"]
+context_window = 131072
+max_output_tokens = 65536
+reasoning = true
+
+[model_settings."gemini-2.5-computer-use-preview-10-2025"]
+context_window = 128000
+max_output_tokens = 64000
+reasoning = true
+
+[model_settings."gemini-2.5-flash"]
+context_window = 1048576
+max_output_tokens = 65536
+reasoning = true
+
+[model_settings."gemini-2.5-flash-lite"]
+context_window = 1048576
+max_output_tokens = 65536
+reasoning = true
+
+[model_settings."gemini-2.5-pro"]
+context_window = 1048576
+max_output_tokens = 65536
+reasoning = true
+
+[model_settings."gemini-3-flash-preview"]
+context_window = 1048576
+max_output_tokens = 65536
+reasoning = true
+reasoning_levels = ["minimal", "low", "medium", "high"]
+
+[model_settings."gemini-3.1-flash-lite"]
+context_window = 1048576
+max_output_tokens = 65536
+reasoning = true
+reasoning_levels = ["minimal", "low", "medium", "high"]
+
+[model_settings."gemini-3.1-flash-lite-image"]
+context_window = 65536
+max_output_tokens = 4096
+reasoning = true
+reasoning_levels = ["minimal", "high"]
+
+[model_settings."gemini-3.1-flash-live-preview"]
+context_window = 131072
+max_output_tokens = 65536
+reasoning = true
+reasoning_levels = ["minimal", "low", "medium", "high"]
+
+[model_settings."gemini-3.1-pro-preview"]
+context_window = 1048576
+max_output_tokens = 65536
+reasoning = true
+reasoning_levels = ["low", "medium", "high"]
+
+[model_settings."gemini-3.1-pro-preview-customtools"]
+context_window = 1048576
+max_output_tokens = 65536
+reasoning = true
+reasoning_levels = ["low", "medium", "high"]
+
+[model_settings."gemini-3.5-flash"]
+context_window = 1048576
+max_output_tokens = 65536
+reasoning = true
+reasoning_levels = ["minimal", "low", "medium", "high"]
+
+[model_settings."gemini-3.5-flash-lite"]
+context_window = 1048576
+max_output_tokens = 65536
+reasoning = true
+reasoning_levels = ["minimal", "low", "medium", "high"]
+
+[model_settings."gemini-3.6-flash"]
+context_window = 1048576
+max_output_tokens = 65536
+reasoning = true
+reasoning_levels = ["minimal", "low", "medium", "high"]
+
+[model_settings."gemini-3.7-flash"]
+context_window = 1048576
+max_output_tokens = 65536
+reasoning = true
+reasoning_levels = ["low", "medium", "high"]
+
+[model_settings."gemini-3.8-flash"]
+context_window = 1048576
+max_output_tokens = 65536
+reasoning = true
+reasoning_levels = ["low", "medium", "high"]
+
+[model_settings."gemini-flash-latest"]
+context_window = 1048576
+max_output_tokens = 65536
+reasoning = true
+reasoning_levels = ["low", "medium", "high"]
+
+[model_settings."gemini-flash-lite-latest"]
+context_window = 1048576
+max_output_tokens = 65536
+reasoning = true
+reasoning_levels = ["minimal", "low", "medium", "high"]
+
+[model_settings."gemma-4-26b-a4b-it"]
+context_window = 262144
+max_output_tokens = 32768
+reasoning = true
+
+[model_settings."gemma-4-31b-it"]
+context_window = 262144
+max_output_tokens = 32768
+reasoning = true

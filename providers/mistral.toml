@@ -7,4 +7,155 @@ protocol = "openai-chat"
 base_url = "https://api.mistral.ai/v1"
 auth = "env"
 key_env = "MISTRAL_API_KEY"
-models = []
+models = [
+  "codestral-latest",
+  "magistral-medium-latest",
+  "magistral-small",
+  "ministral-3b-latest",
+  "ministral-8b-latest",
+  "mistral-large-2411",
+  "mistral-large-2512",
+  "mistral-large-latest",
+  "mistral-medium-2505",
+  "mistral-medium-2508",
+  "mistral-medium-2604",
+  "mistral-medium-latest",
+  "mistral-nemo",
+  "mistral-small-2506",
+  "mistral-small-2603",
+  "mistral-small-latest",
+  "open-mistral-7b",
+  "open-mixtral-8x22b",
+  "open-mixtral-8x7b",
+  "pixtral-12b",
+  "pixtral-large-latest",
+  "voxtral-small-latest",
+  "zai-glm-5-2",
+  "zai-glm-5-3",
+]
+
+[model_settings."codestral-latest"]
+context_window = 256000
+max_output_tokens = 4096
+reasoning = false
+
+[model_settings."magistral-medium-latest"]
+context_window = 128000
+max_output_tokens = 16384
+reasoning = true
+
+[model_settings."magistral-small"]
+context_window = 128000
+max_output_tokens = 128000
+reasoning = true
+
+[model_settings."ministral-3b-latest"]
+context_window = 128000
+max_output_tokens = 128000
+reasoning = false
+
+[model_settings."ministral-8b-latest"]
+context_window = 128000
+max_output_tokens = 128000
+reasoning = false
+
+[model_settings."mistral-large-2411"]
+context_window = 131072
+max_output_tokens = 16384
+reasoning = false
+
+[model_settings."mistral-large-2512"]
+context_window = 262144
+max_output_tokens = 262144
+reasoning = false
+
+[model_settings."mistral-large-latest"]
+context_window = 262144
+max_output_tokens = 262144
+reasoning = false
+
+[model_settings."mistral-medium-2505"]
+context_window = 131072
+max_output_tokens = 131072
+reasoning = false
+
+[model_settings."mistral-medium-2508"]
+context_window = 262144
+max_output_tokens = 262144
+reasoning = false
+
+[model_settings."mistral-medium-2604"]
+context_window = 262144
+max_output_tokens = 262144
+reasoning = true
+reasoning_levels = ["off", "high"]
+
+[model_settings."mistral-medium-latest"]
+context_window = 262144
+max_output_tokens = 262144
+reasoning = true
+reasoning_levels = ["off", "high"]
+
+[model_settings."mistral-nemo"]
+context_window = 128000
+max_output_tokens = 128000
+reasoning = false
+
+[model_settings."mistral-small-2506"]
+context_window = 128000
+max_output_tokens = 16384
+reasoning = false
+
+[model_settings."mistral-small-2603"]
+context_window = 256000
+max_output_tokens = 256000
+reasoning = true
+reasoning_levels = ["off", "high"]
+
+[model_settings."mistral-small-latest"]
+context_window = 256000
+max_output_tokens = 256000
+reasoning = true
+reasoning_levels = ["off", "high"]
+
+[model_settings."open-mistral-7b"]
+context_window = 8000
+max_output_tokens = 8000
+reasoning = false
+
+[model_settings."open-mixtral-8x22b"]
+context_window = 64000
+max_output_tokens = 64000
+reasoning = false
+
+[model_settings."open-mixtral-8x7b"]
+context_window = 32000
+max_output_tokens = 32000
+reasoning = false
+
+[model_settings."pixtral-12b"]
+context_window = 128000
+max_output_tokens = 128000
+reasoning = false
+
+[model_settings."pixtral-large-latest"]
+context_window = 128000
+max_output_tokens = 128000
+reasoning = false
+
+[model_settings."voxtral-small-latest"]
+context_window = 32000
+max_output_tokens = 32000
+reasoning = false
+
+[model_settings."zai-glm-5-2"]
+context_window = 1000000
+max_output_tokens = 131072
+reasoning = true
+reasoning_levels = ["off", "high"]
+
+[model_settings."zai-glm-5-3"]
+context_window = 1000000
+max_output_tokens = 131072
+reasoning = true
+reasoning_levels = ["low", "high"]

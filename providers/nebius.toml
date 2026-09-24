@@ -1,10 +1,136 @@
 # VibePod provider definition. Contains no credentials.
-# Nebius AI Studio (EU).
+# Nebius Token Factory (EU).
 # Docs: https://docs.nebius.com/studio/inference
 version = 1
 name = "nebius"
 protocol = "openai-chat"
-base_url = "https://api.studio.nebius.com/v1"
+base_url = "https://api.tokenfactory.nebius.com/v1"
 auth = "env"
 key_env = "NEBIUS_API_KEY"
-models = []
+models = [
+  "MiniMaxAI/MiniMax-M3",
+  "NousResearch/Hermes-4-405B",
+  "Qwen/Qwen3-235B-A22B-Instruct-2507",
+  "Qwen/Qwen3-30B-A3B-Instruct-2507",
+  "Qwen/Qwen3.5-397B-A17B",
+  "deepseek-ai/DeepSeek-V4-Flash-0731",
+  "deepseek-ai/DeepSeek-V4-Pro",
+  "deepseek-ai/DeepSeek-V4-Pro-0813",
+  "deepseek-ai/DeepSeek-V4.1-Flash",
+  "google/gemma-3-27b-it",
+  "moonshotai/Kimi-K2.7-Code",
+  "moonshotai/Kimi-K3",
+  "nvidia/Nemotron-3-Ultra-550b-a55b",
+  "nvidia/Nemotron-3_5-Lightning",
+  "nvidia/nemotron-3-super-120b-a12b",
+  "openai/gpt-oss-120b",
+  "zai-org/GLM-5.2",
+  "zai-org/GLM-5.3",
+  "zai-org/GLM-5.3-Flash",
+]
+
+[model_settings."MiniMaxAI/MiniMax-M3"]
+context_window = 1048576
+max_output_tokens = 1048576
+reasoning = true
+
+[model_settings."NousResearch/Hermes-4-405B"]
+context_window = 131072
+max_output_tokens = 8192
+reasoning = true
+
+[model_settings."Qwen/Qwen3-235B-A22B-Instruct-2507"]
+context_window = 262144
+max_output_tokens = 8192
+reasoning = false
+
+[model_settings."Qwen/Qwen3-30B-A3B-Instruct-2507"]
+context_window = 262144
+max_output_tokens = 8192
+reasoning = false
+
+[model_settings."Qwen/Qwen3.5-397B-A17B"]
+context_window = 262144
+max_output_tokens = 8192
+reasoning = true
+
+[model_settings."deepseek-ai/DeepSeek-V4-Flash-0731"]
+context_window = 1024000
+max_output_tokens = 1024000
+reasoning = true
+reasoning_levels = ["off", "low", "high"]
+
+[model_settings."deepseek-ai/DeepSeek-V4-Pro"]
+context_window = 1048576
+max_output_tokens = 1048576
+reasoning = true
+reasoning_levels = ["off", "low", "high"]
+
+[model_settings."deepseek-ai/DeepSeek-V4-Pro-0813"]
+context_window = 979000
+max_output_tokens = 979000
+reasoning = true
+reasoning_levels = ["off", "low", "high"]
+
+[model_settings."deepseek-ai/DeepSeek-V4.1-Flash"]
+context_window = 1048000
+max_output_tokens = 1048000
+reasoning = true
+reasoning_levels = ["off", "low", "high"]
+
+[model_settings."google/gemma-3-27b-it"]
+context_window = 110000
+max_output_tokens = 8192
+reasoning = false
+
+[model_settings."moonshotai/Kimi-K2.7-Code"]
+context_window = 262144
+max_output_tokens = 8000
+reasoning = true
+
+[model_settings."moonshotai/Kimi-K3"]
+context_window = 1048576
+max_output_tokens = 8000
+reasoning = true
+reasoning_levels = ["off", "low", "medium", "high"]
+
+[model_settings."nvidia/Nemotron-3-Ultra-550b-a55b"]
+context_window = 1048576
+max_output_tokens = 1048576
+reasoning = true
+reasoning_levels = ["off", "high"]
+
+[model_settings."nvidia/Nemotron-3_5-Lightning"]
+context_window = 1048576
+max_output_tokens = 1048576
+reasoning = true
+reasoning_levels = ["off", "high"]
+
+[model_settings."nvidia/nemotron-3-super-120b-a12b"]
+context_window = 262144
+max_output_tokens = 32768
+reasoning = true
+
+[model_settings."openai/gpt-oss-120b"]
+context_window = 131072
+max_output_tokens = 8192
+reasoning = true
+reasoning_levels = ["low", "medium", "high"]
+
+[model_settings."zai-org/GLM-5.2"]
+context_window = 1048576
+max_output_tokens = 1048576
+reasoning = true
+reasoning_levels = ["low", "medium", "high"]
+
+[model_settings."zai-org/GLM-5.3"]
+context_window = 1024000
+max_output_tokens = 1024000
+reasoning = true
+reasoning_levels = ["low", "high"]
+
+[model_settings."zai-org/GLM-5.3-Flash"]
+context_window = 1024000
+max_output_tokens = 1024000
+reasoning = true
+reasoning_levels = ["low", "high"]

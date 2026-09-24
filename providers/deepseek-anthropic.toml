@@ -7,4 +7,19 @@ protocol = "anthropic"
 base_url = "https://api.deepseek.com/anthropic"
 auth = "env"
 key_env = "DEEPSEEK_API_KEY"
-models = []
+models = [
+  "deepseek-flash",
+  "deepseek-v4-pro",
+]
+
+[model_settings."deepseek-flash"]
+context_window = 1000000
+max_output_tokens = 393216
+reasoning = true
+reasoning_levels = ["low", "high"]
+
+[model_settings."deepseek-v4-pro"]
+context_window = 1000000
+max_output_tokens = 393216
+reasoning = true
+reasoning_levels = ["low", "high"]

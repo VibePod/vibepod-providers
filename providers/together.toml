@@ -7,4 +7,148 @@ protocol = "openai-chat"
 base_url = "https://api.together.xyz/v1"
 auth = "env"
 key_env = "TOGETHER_API_KEY"
-models = []
+models = [
+  "MiniMaxAI/MiniMax-M2.7",
+  "MiniMaxAI/MiniMax-M3",
+  "Qwen/Qwen2.5-7B-Instruct-Turbo",
+  "Qwen/Qwen3.5-9B",
+  "Qwen/Qwen3.6-Plus",
+  "Qwen/Qwen3.7-Max",
+  "deepseek-ai/DeepSeek-V4-Flash-0731",
+  "deepseek-ai/DeepSeek-V4-Pro",
+  "deepseek-ai/DeepSeek-V4-Pro-0813",
+  "deepseek-ai/DeepSeek-V4.1-Flash",
+  "google/gemma-4-31B-it",
+  "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "moonshotai/Kimi-K2.6",
+  "moonshotai/Kimi-K2.7-Code",
+  "moonshotai/Kimi-K3",
+  "nvidia/nemotron-3-ultra-550b-a55b",
+  "openai/gpt-oss-120b",
+  "openai/gpt-oss-20b",
+  "thinkingmachines/Inkling",
+  "zai-org/GLM-5.2",
+  "zai-org/GLM-5.3",
+  "zai-org/GLM-5.3-Flash",
+]
+
+[model_settings."MiniMaxAI/MiniMax-M2.7"]
+context_window = 196608
+max_output_tokens = 131072
+reasoning = true
+
+[model_settings."MiniMaxAI/MiniMax-M3"]
+context_window = 524288
+max_output_tokens = 250000
+reasoning = true
+
+[model_settings."Qwen/Qwen2.5-7B-Instruct-Turbo"]
+context_window = 32768
+max_output_tokens = 32768
+reasoning = false
+
+[model_settings."Qwen/Qwen3.5-9B"]
+context_window = 262144
+max_output_tokens = 65536
+reasoning = true
+
+[model_settings."Qwen/Qwen3.6-Plus"]
+context_window = 1000000
+max_output_tokens = 500000
+reasoning = true
+
+[model_settings."Qwen/Qwen3.7-Max"]
+context_window = 1000000
+max_output_tokens = 500000
+reasoning = false
+
+[model_settings."deepseek-ai/DeepSeek-V4-Flash-0731"]
+context_window = 1048576
+max_output_tokens = 384000
+reasoning = true
+reasoning_levels = ["high"]
+
+[model_settings."deepseek-ai/DeepSeek-V4-Pro"]
+context_window = 512000
+max_output_tokens = 384000
+reasoning = true
+reasoning_levels = ["high"]
+
+[model_settings."deepseek-ai/DeepSeek-V4-Pro-0813"]
+context_window = 1048576
+max_output_tokens = 384000
+reasoning = true
+reasoning_levels = ["low", "high"]
+
+[model_settings."deepseek-ai/DeepSeek-V4.1-Flash"]
+context_window = 1048576
+max_output_tokens = 384000
+reasoning = true
+reasoning_levels = ["low", "high"]
+
+[model_settings."google/gemma-4-31B-it"]
+context_window = 262144
+max_output_tokens = 131072
+reasoning = true
+
+[model_settings."meta-llama/Llama-3.3-70B-Instruct-Turbo"]
+context_window = 131072
+max_output_tokens = 131072
+reasoning = false
+
+[model_settings."moonshotai/Kimi-K2.6"]
+context_window = 262144
+max_output_tokens = 131000
+reasoning = true
+
+[model_settings."moonshotai/Kimi-K2.7-Code"]
+context_window = 262144
+max_output_tokens = 131072
+reasoning = true
+
+[model_settings."moonshotai/Kimi-K3"]
+context_window = 1048576
+max_output_tokens = 131072
+reasoning = true
+reasoning_levels = ["low", "high"]
+
+[model_settings."nvidia/nemotron-3-ultra-550b-a55b"]
+context_window = 512300
+max_output_tokens = 512300
+reasoning = true
+
+[model_settings."openai/gpt-oss-120b"]
+context_window = 131072
+max_output_tokens = 131072
+reasoning = true
+reasoning_levels = ["low", "medium", "high"]
+
+[model_settings."openai/gpt-oss-20b"]
+context_window = 131072
+max_output_tokens = 131072
+reasoning = true
+reasoning_levels = ["low", "medium", "high"]
+
+[model_settings."thinkingmachines/Inkling"]
+context_window = 524288
+max_output_tokens = 131072
+reasoning = true
+reasoning_levels = ["off", "low", "medium", "high", "xhigh"]
+
+[model_settings."zai-org/GLM-5.2"]
+context_window = 1048575
+max_output_tokens = 164000
+reasoning = true
+reasoning_levels = ["high"]
+
+[model_settings."zai-org/GLM-5.3"]
+context_window = 1048576
+max_output_tokens = 262144
+reasoning = true
+reasoning_levels = ["low", "high"]
+
+[model_settings."zai-org/GLM-5.3-Flash"]
+context_window = 1048575
+max_output_tokens = 400000
+reasoning = true
+reasoning_levels = ["low", "high"]

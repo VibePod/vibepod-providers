@@ -7,4 +7,106 @@ protocol = "anthropic"
 base_url = "https://api.anthropic.com"
 auth = "env"
 key_env = "ANTHROPIC_API_KEY"
-models = []
+models = [
+  "claude-fable-5",
+  "claude-fable-5-1",
+  "claude-haiku-4-5",
+  "claude-haiku-4-5-20251001",
+  "claude-opus-4-5",
+  "claude-opus-4-5-20251101",
+  "claude-opus-4-6",
+  "claude-opus-4-7",
+  "claude-opus-4-8",
+  "claude-opus-5",
+  "claude-opus-5-5",
+  "claude-sonnet-4-5",
+  "claude-sonnet-4-5-20250929",
+  "claude-sonnet-4-6",
+  "claude-sonnet-5",
+]
+
+[model_settings."claude-fable-5"]
+context_window = 1000000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["low", "medium", "high", "xhigh"]
+
+[model_settings."claude-fable-5-1"]
+context_window = 1000000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["low", "medium", "high", "xhigh"]
+
+[model_settings."claude-haiku-4-5"]
+context_window = 200000
+max_output_tokens = 64000
+reasoning = true
+
+[model_settings."claude-haiku-4-5-20251001"]
+context_window = 200000
+max_output_tokens = 64000
+reasoning = true
+
+[model_settings."claude-opus-4-5"]
+context_window = 200000
+max_output_tokens = 64000
+reasoning = true
+reasoning_levels = ["low", "medium", "high"]
+
+[model_settings."claude-opus-4-5-20251101"]
+context_window = 200000
+max_output_tokens = 64000
+reasoning = true
+reasoning_levels = ["low", "medium", "high"]
+
+[model_settings."claude-opus-4-6"]
+context_window = 1000000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["low", "medium", "high"]
+
+[model_settings."claude-opus-4-7"]
+context_window = 1000000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["low", "medium", "high", "xhigh"]
+
+[model_settings."claude-opus-4-8"]
+context_window = 1000000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["low", "medium", "high", "xhigh"]
+
+[model_settings."claude-opus-5"]
+context_window = 1000000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["low", "medium", "high", "xhigh"]
+
+[model_settings."claude-opus-5-5"]
+context_window = 1000000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["low", "medium", "high", "xhigh"]
+
+[model_settings."claude-sonnet-4-5"]
+context_window = 1000000
+max_output_tokens = 64000
+reasoning = true
+
+[model_settings."claude-sonnet-4-5-20250929"]
+context_window = 1000000
+max_output_tokens = 64000
+reasoning = true
+
+[model_settings."claude-sonnet-4-6"]
+context_window = 1000000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["low", "medium", "high"]
+
+[model_settings."claude-sonnet-5"]
+context_window = 1000000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["low", "medium", "high", "xhigh"]

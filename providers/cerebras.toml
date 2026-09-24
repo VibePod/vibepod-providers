@@ -7,4 +7,19 @@ protocol = "openai-chat"
 base_url = "https://api.cerebras.ai/v1"
 auth = "env"
 key_env = "CEREBRAS_API_KEY"
-models = []
+models = [
+  "gpt-oss-120b",
+  "qwen-3.8-27b",
+]
+
+[model_settings."gpt-oss-120b"]
+context_window = 131072
+max_output_tokens = 40960
+reasoning = true
+reasoning_levels = ["low", "medium", "high"]
+
+[model_settings."qwen-3.8-27b"]
+context_window = 65536
+max_output_tokens = 32768
+reasoning = true
+reasoning_levels = ["off", "low", "medium", "high"]

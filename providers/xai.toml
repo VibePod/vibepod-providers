@@ -7,4 +7,51 @@ protocol = "openai-chat"
 base_url = "https://api.x.ai/v1"
 auth = "env"
 key_env = "XAI_API_KEY"
-models = []
+models = [
+  "grok-4.20-0309-non-reasoning",
+  "grok-4.20-0309-reasoning",
+  "grok-4.3",
+  "grok-4.5",
+  "grok-4.6",
+  "grok-4.7",
+  "grok-build-0.1",
+]
+
+[model_settings."grok-4.20-0309-non-reasoning"]
+context_window = 1000000
+max_output_tokens = 30000
+reasoning = false
+
+[model_settings."grok-4.20-0309-reasoning"]
+context_window = 1000000
+max_output_tokens = 30000
+reasoning = true
+
+[model_settings."grok-4.3"]
+context_window = 1000000
+max_output_tokens = 30000
+reasoning = true
+reasoning_levels = ["off", "low", "medium", "high"]
+
+[model_settings."grok-4.5"]
+context_window = 500000
+max_output_tokens = 500000
+reasoning = true
+reasoning_levels = ["low", "medium", "high"]
+
+[model_settings."grok-4.6"]
+context_window = 500000
+max_output_tokens = 500000
+reasoning = true
+reasoning_levels = ["low", "medium", "high", "xhigh"]
+
+[model_settings."grok-4.7"]
+context_window = 500000
+max_output_tokens = 500000
+reasoning = true
+reasoning_levels = ["low", "medium", "high", "xhigh"]
+
+[model_settings."grok-build-0.1"]
+context_window = 256000
+max_output_tokens = 256000
+reasoning = true

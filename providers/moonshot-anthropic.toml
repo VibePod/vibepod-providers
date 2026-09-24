@@ -7,4 +7,30 @@ protocol = "anthropic"
 base_url = "https://api.moonshot.ai/anthropic"
 auth = "env"
 key_env = "MOONSHOT_API_KEY"
-models = []
+models = [
+  "kimi-k2.6",
+  "kimi-k2.7-code",
+  "kimi-k2.7-code-highspeed",
+  "kimi-k3",
+]
+
+[model_settings."kimi-k2.6"]
+context_window = 262144
+max_output_tokens = 262144
+reasoning = true
+
+[model_settings."kimi-k2.7-code"]
+context_window = 262144
+max_output_tokens = 262144
+reasoning = true
+
+[model_settings."kimi-k2.7-code-highspeed"]
+context_window = 262144
+max_output_tokens = 262144
+reasoning = true
+
+[model_settings."kimi-k3"]
+context_window = 1048576
+max_output_tokens = 1048576
+reasoning = true
+reasoning_levels = ["low", "high"]

@@ -7,4 +7,52 @@ protocol = "openai-chat"
 base_url = "https://api.groq.com/openai/v1"
 auth = "env"
 key_env = "GROQ_API_KEY"
-models = []
+models = [
+  "llama-3.1-8b-instant",
+  "llama-3.3-70b-versatile",
+  "openai/gpt-oss-120b",
+  "openai/gpt-oss-20b",
+  "openai/gpt-oss-safeguard-20b",
+  "qwen/qwen3.6-27b",
+  "qwen/qwen3.8-27b",
+]
+
+[model_settings."llama-3.1-8b-instant"]
+context_window = 131072
+max_output_tokens = 131072
+reasoning = false
+
+[model_settings."llama-3.3-70b-versatile"]
+context_window = 131072
+max_output_tokens = 32768
+reasoning = false
+
+[model_settings."openai/gpt-oss-120b"]
+context_window = 131072
+max_output_tokens = 65536
+reasoning = true
+reasoning_levels = ["low", "medium", "high"]
+
+[model_settings."openai/gpt-oss-20b"]
+context_window = 131072
+max_output_tokens = 65536
+reasoning = true
+reasoning_levels = ["low", "medium", "high"]
+
+[model_settings."openai/gpt-oss-safeguard-20b"]
+context_window = 131072
+max_output_tokens = 65536
+reasoning = true
+reasoning_levels = ["low", "medium", "high"]
+
+[model_settings."qwen/qwen3.6-27b"]
+context_window = 131072
+max_output_tokens = 16384
+reasoning = true
+reasoning_levels = ["off"]
+
+[model_settings."qwen/qwen3.8-27b"]
+context_window = 131042
+max_output_tokens = 16384
+reasoning = true
+reasoning_levels = ["off", "low", "medium", "high"]

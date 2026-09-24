@@ -7,4 +7,481 @@ protocol = "openai-chat"
 base_url = "https://router.huggingface.co/v1"
 auth = "env"
 key_env = "HF_TOKEN"
-models = []
+models = [
+  "MiniMaxAI/MiniMax-M2",
+  "MiniMaxAI/MiniMax-M2.1",
+  "MiniMaxAI/MiniMax-M2.5",
+  "MiniMaxAI/MiniMax-M2.7",
+  "MiniMaxAI/MiniMax-M3",
+  "Qwen/Qwen2.5-Coder-32B-Instruct",
+  "Qwen/Qwen3-235B-A22B",
+  "Qwen/Qwen3-235B-A22B-Instruct-2507",
+  "Qwen/Qwen3-235B-A22B-Thinking-2507",
+  "Qwen/Qwen3-30B-A3B",
+  "Qwen/Qwen3-32B",
+  "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+  "Qwen/Qwen3-Coder-480B-A35B-Instruct",
+  "Qwen/Qwen3-Coder-Next",
+  "Qwen/Qwen3-Next-80B-A3B-Instruct",
+  "Qwen/Qwen3-Next-80B-A3B-Thinking",
+  "Qwen/Qwen3-VL-235B-A22B-Instruct",
+  "Qwen/Qwen3-VL-235B-A22B-Thinking",
+  "Qwen/Qwen3.5-122B-A10B",
+  "Qwen/Qwen3.5-27B",
+  "Qwen/Qwen3.5-35B-A3B",
+  "Qwen/Qwen3.5-397B-A17B",
+  "Qwen/Qwen3.5-9B",
+  "Qwen/Qwen3.6-27B",
+  "Qwen/Qwen3.6-35B-A3B",
+  "Qwen/Qwen3.8-2.4T-A95B",
+  "Qwen/Qwen3.8-27B",
+  "XiaomiMiMo/MiMo-V2-Flash",
+  "XiaomiMiMo/MiMo-V2.5",
+  "XiaomiMiMo/MiMo-V2.5-Pro",
+  "deepseek-ai/DeepSeek-R1",
+  "deepseek-ai/DeepSeek-R1-0528",
+  "deepseek-ai/DeepSeek-V3",
+  "deepseek-ai/DeepSeek-V3-0324",
+  "deepseek-ai/DeepSeek-V3.1",
+  "deepseek-ai/DeepSeek-V3.2",
+  "deepseek-ai/DeepSeek-V4-Flash",
+  "deepseek-ai/DeepSeek-V4-Flash-0731",
+  "deepseek-ai/DeepSeek-V4-Flash-Vision-Exp",
+  "deepseek-ai/DeepSeek-V4-Pro",
+  "deepseek-ai/DeepSeek-V4-Pro-0813",
+  "deepseek-ai/DeepSeek-V4.1-Flash",
+  "google/gemma-3-12b-it",
+  "google/gemma-3-27b-it",
+  "google/gemma-3-4b-it",
+  "google/gemma-4-26B-A4B-it",
+  "google/gemma-4-31B-it",
+  "meta-llama/Llama-3.1-8B-Instruct",
+  "meta-llama/Llama-3.3-70B-Instruct",
+  "moonshotai/Kimi-K2-Instruct",
+  "moonshotai/Kimi-K2-Instruct-0905",
+  "moonshotai/Kimi-K2-Thinking",
+  "moonshotai/Kimi-K2.5",
+  "moonshotai/Kimi-K2.6",
+  "moonshotai/Kimi-K2.7-Code",
+  "moonshotai/Kimi-K3",
+  "openai/gpt-oss-120b",
+  "openai/gpt-oss-20b",
+  "stepfun-ai/Step-3.5-Flash",
+  "stepfun-ai/Step-3.7-Flash",
+  "tencent/Hy3",
+  "tencent/Hy4-preview",
+  "thinkingmachines/Inkling",
+  "thinkingmachines/Inkling-Small",
+  "zai-org/GLM-4.5",
+  "zai-org/GLM-4.5-Air",
+  "zai-org/GLM-4.5V",
+  "zai-org/GLM-4.6",
+  "zai-org/GLM-4.6V-Flash",
+  "zai-org/GLM-4.7",
+  "zai-org/GLM-4.7-Flash",
+  "zai-org/GLM-5",
+  "zai-org/GLM-5.1",
+  "zai-org/GLM-5.2",
+  "zai-org/GLM-5.3",
+  "zai-org/GLM-5.3-Flash",
+]
+
+[model_settings."MiniMaxAI/MiniMax-M2"]
+context_window = 204800
+max_output_tokens = 131072
+reasoning = true
+
+[model_settings."MiniMaxAI/MiniMax-M2.1"]
+context_window = 204800
+max_output_tokens = 131072
+reasoning = true
+
+[model_settings."MiniMaxAI/MiniMax-M2.5"]
+context_window = 204800
+max_output_tokens = 131072
+reasoning = true
+
+[model_settings."MiniMaxAI/MiniMax-M2.7"]
+context_window = 204800
+max_output_tokens = 131072
+reasoning = true
+
+[model_settings."MiniMaxAI/MiniMax-M3"]
+context_window = 524288
+max_output_tokens = 512000
+reasoning = true
+
+[model_settings."Qwen/Qwen2.5-Coder-32B-Instruct"]
+context_window = 131072
+max_output_tokens = 8192
+reasoning = false
+
+[model_settings."Qwen/Qwen3-235B-A22B"]
+context_window = 40960
+max_output_tokens = 16384
+reasoning = true
+
+[model_settings."Qwen/Qwen3-235B-A22B-Instruct-2507"]
+context_window = 262144
+max_output_tokens = 16384
+reasoning = false
+
+[model_settings."Qwen/Qwen3-235B-A22B-Thinking-2507"]
+context_window = 262144
+max_output_tokens = 131072
+reasoning = true
+
+[model_settings."Qwen/Qwen3-30B-A3B"]
+context_window = 40960
+max_output_tokens = 16384
+reasoning = true
+
+[model_settings."Qwen/Qwen3-32B"]
+context_window = 131072
+max_output_tokens = 16384
+reasoning = true
+
+[model_settings."Qwen/Qwen3-Coder-30B-A3B-Instruct"]
+context_window = 262144
+max_output_tokens = 65536
+reasoning = false
+
+[model_settings."Qwen/Qwen3-Coder-480B-A35B-Instruct"]
+context_window = 262144
+max_output_tokens = 66536
+reasoning = false
+
+[model_settings."Qwen/Qwen3-Coder-Next"]
+context_window = 262144
+max_output_tokens = 65536
+reasoning = false
+
+[model_settings."Qwen/Qwen3-Next-80B-A3B-Instruct"]
+context_window = 262144
+max_output_tokens = 66536
+reasoning = false
+
+[model_settings."Qwen/Qwen3-Next-80B-A3B-Thinking"]
+context_window = 262144
+max_output_tokens = 131072
+reasoning = false
+
+[model_settings."Qwen/Qwen3-VL-235B-A22B-Instruct"]
+context_window = 131072
+max_output_tokens = 32768
+reasoning = false
+
+[model_settings."Qwen/Qwen3-VL-235B-A22B-Thinking"]
+context_window = 131072
+max_output_tokens = 32768
+reasoning = true
+reasoning_levels = ["low", "medium", "high"]
+
+[model_settings."Qwen/Qwen3.5-122B-A10B"]
+context_window = 262144
+max_output_tokens = 65536
+reasoning = true
+
+[model_settings."Qwen/Qwen3.5-27B"]
+context_window = 262144
+max_output_tokens = 65536
+reasoning = true
+
+[model_settings."Qwen/Qwen3.5-35B-A3B"]
+context_window = 262144
+max_output_tokens = 65536
+reasoning = true
+
+[model_settings."Qwen/Qwen3.5-397B-A17B"]
+context_window = 262144
+max_output_tokens = 32768
+reasoning = true
+reasoning_levels = ["off", "low", "medium", "high"]
+
+[model_settings."Qwen/Qwen3.5-9B"]
+context_window = 262144
+max_output_tokens = 65536
+reasoning = true
+
+[model_settings."Qwen/Qwen3.6-27B"]
+context_window = 262144
+max_output_tokens = 65536
+reasoning = true
+
+[model_settings."Qwen/Qwen3.6-35B-A3B"]
+context_window = 262144
+max_output_tokens = 65536
+reasoning = true
+
+[model_settings."Qwen/Qwen3.8-2.4T-A95B"]
+context_window = 262144
+max_output_tokens = 131072
+reasoning = true
+reasoning_levels = ["low", "medium", "xhigh"]
+
+[model_settings."Qwen/Qwen3.8-27B"]
+context_window = 262144
+max_output_tokens = 32768
+reasoning = true
+reasoning_levels = ["low", "medium", "xhigh"]
+
+[model_settings."XiaomiMiMo/MiMo-V2-Flash"]
+context_window = 262144
+max_output_tokens = 4096
+reasoning = true
+
+[model_settings."XiaomiMiMo/MiMo-V2.5"]
+context_window = 262144
+max_output_tokens = 131072
+reasoning = true
+reasoning_levels = ["off", "low", "medium", "high", "xhigh"]
+
+[model_settings."XiaomiMiMo/MiMo-V2.5-Pro"]
+context_window = 1048576
+max_output_tokens = 131072
+reasoning = true
+reasoning_levels = ["off", "low", "medium", "high", "xhigh"]
+
+[model_settings."deepseek-ai/DeepSeek-R1"]
+context_window = 64000
+max_output_tokens = 32768
+reasoning = true
+
+[model_settings."deepseek-ai/DeepSeek-R1-0528"]
+context_window = 163840
+max_output_tokens = 163840
+reasoning = true
+
+[model_settings."deepseek-ai/DeepSeek-V3"]
+context_window = 64000
+max_output_tokens = 8192
+reasoning = false
+
+[model_settings."deepseek-ai/DeepSeek-V3-0324"]
+context_window = 163840
+max_output_tokens = 163840
+reasoning = false
+
+[model_settings."deepseek-ai/DeepSeek-V3.1"]
+context_window = 131072
+max_output_tokens = 8192
+reasoning = true
+
+[model_settings."deepseek-ai/DeepSeek-V3.2"]
+context_window = 163840
+max_output_tokens = 65536
+reasoning = true
+
+[model_settings."deepseek-ai/DeepSeek-V4-Flash"]
+context_window = 1048576
+max_output_tokens = 384000
+reasoning = true
+
+[model_settings."deepseek-ai/DeepSeek-V4-Flash-0731"]
+context_window = 1048576
+max_output_tokens = 384000
+reasoning = true
+reasoning_levels = ["high"]
+
+[model_settings."deepseek-ai/DeepSeek-V4-Flash-Vision-Exp"]
+context_window = 1048576
+max_output_tokens = 384000
+reasoning = true
+reasoning_levels = ["low", "high"]
+
+[model_settings."deepseek-ai/DeepSeek-V4-Pro"]
+context_window = 1048576
+max_output_tokens = 393216
+reasoning = true
+reasoning_levels = ["high"]
+
+[model_settings."deepseek-ai/DeepSeek-V4-Pro-0813"]
+context_window = 1000000
+max_output_tokens = 384000
+reasoning = true
+reasoning_levels = ["low", "high"]
+
+[model_settings."deepseek-ai/DeepSeek-V4.1-Flash"]
+context_window = 1048576
+max_output_tokens = 384000
+reasoning = true
+reasoning_levels = ["off", "low", "high", "xhigh"]
+
+[model_settings."google/gemma-3-12b-it"]
+context_window = 131072
+max_output_tokens = 131072
+reasoning = false
+
+[model_settings."google/gemma-3-27b-it"]
+context_window = 131072
+max_output_tokens = 131072
+reasoning = false
+
+[model_settings."google/gemma-3-4b-it"]
+context_window = 131072
+max_output_tokens = 131072
+reasoning = false
+
+[model_settings."google/gemma-4-26B-A4B-it"]
+context_window = 262144
+max_output_tokens = 32768
+reasoning = true
+
+[model_settings."google/gemma-4-31B-it"]
+context_window = 262144
+max_output_tokens = 32768
+reasoning = true
+
+[model_settings."meta-llama/Llama-3.1-8B-Instruct"]
+context_window = 131072
+max_output_tokens = 4096
+reasoning = false
+
+[model_settings."meta-llama/Llama-3.3-70B-Instruct"]
+context_window = 131072
+max_output_tokens = 4096
+reasoning = false
+
+[model_settings."moonshotai/Kimi-K2-Instruct"]
+context_window = 131072
+max_output_tokens = 16384
+reasoning = false
+
+[model_settings."moonshotai/Kimi-K2-Instruct-0905"]
+context_window = 262144
+max_output_tokens = 16384
+reasoning = false
+
+[model_settings."moonshotai/Kimi-K2-Thinking"]
+context_window = 262144
+max_output_tokens = 262144
+reasoning = true
+
+[model_settings."moonshotai/Kimi-K2.5"]
+context_window = 262144
+max_output_tokens = 262144
+reasoning = true
+
+[model_settings."moonshotai/Kimi-K2.6"]
+context_window = 262144
+max_output_tokens = 262144
+reasoning = true
+
+[model_settings."moonshotai/Kimi-K2.7-Code"]
+context_window = 262144
+max_output_tokens = 262144
+reasoning = true
+
+[model_settings."moonshotai/Kimi-K3"]
+context_window = 1000000
+max_output_tokens = 131072
+reasoning = true
+reasoning_levels = ["low", "high"]
+
+[model_settings."openai/gpt-oss-120b"]
+context_window = 131072
+max_output_tokens = 32768
+reasoning = true
+reasoning_levels = ["low", "medium", "high"]
+
+[model_settings."openai/gpt-oss-20b"]
+context_window = 131072
+max_output_tokens = 32768
+reasoning = true
+reasoning_levels = ["low", "medium", "high"]
+
+[model_settings."stepfun-ai/Step-3.5-Flash"]
+context_window = 262144
+max_output_tokens = 256000
+reasoning = true
+
+[model_settings."stepfun-ai/Step-3.7-Flash"]
+context_window = 262144
+max_output_tokens = 256000
+reasoning = true
+reasoning_levels = ["low", "medium", "high"]
+
+[model_settings."tencent/Hy3"]
+context_window = 262144
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["off", "low", "high"]
+
+[model_settings."tencent/Hy4-preview"]
+context_window = 1000000
+max_output_tokens = 64000
+reasoning = true
+reasoning_levels = ["off", "high"]
+
+[model_settings."thinkingmachines/Inkling"]
+context_window = 1048576
+max_output_tokens = 1048576
+reasoning = true
+reasoning_levels = ["low", "medium", "high"]
+
+[model_settings."thinkingmachines/Inkling-Small"]
+context_window = 524288
+max_output_tokens = 1048576
+reasoning = true
+
+[model_settings."zai-org/GLM-4.5"]
+context_window = 131072
+max_output_tokens = 98304
+reasoning = true
+
+[model_settings."zai-org/GLM-4.5-Air"]
+context_window = 131072
+max_output_tokens = 98304
+reasoning = true
+
+[model_settings."zai-org/GLM-4.5V"]
+context_window = 65536
+max_output_tokens = 16384
+reasoning = true
+
+[model_settings."zai-org/GLM-4.6"]
+context_window = 204800
+max_output_tokens = 131072
+reasoning = true
+
+[model_settings."zai-org/GLM-4.6V-Flash"]
+context_window = 131072
+max_output_tokens = 32768
+reasoning = true
+
+[model_settings."zai-org/GLM-4.7"]
+context_window = 204800
+max_output_tokens = 131072
+reasoning = true
+
+[model_settings."zai-org/GLM-4.7-Flash"]
+context_window = 200000
+max_output_tokens = 128000
+reasoning = true
+
+[model_settings."zai-org/GLM-5"]
+context_window = 202752
+max_output_tokens = 131072
+reasoning = true
+
+[model_settings."zai-org/GLM-5.1"]
+context_window = 202752
+max_output_tokens = 131072
+reasoning = true
+
+[model_settings."zai-org/GLM-5.2"]
+context_window = 262144
+max_output_tokens = 131072
+reasoning = true
+
+[model_settings."zai-org/GLM-5.3"]
+context_window = 1048576
+max_output_tokens = 131072
+reasoning = true
+reasoning_levels = ["low", "high"]
+
+[model_settings."zai-org/GLM-5.3-Flash"]
+context_window = 1048576
+max_output_tokens = 131072
+reasoning = true
+reasoning_levels = ["low", "high"]

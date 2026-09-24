@@ -7,4 +7,161 @@ protocol = "openai-chat"
 base_url = "https://ollama.com/v1"
 auth = "env"
 key_env = "OLLAMA_API_KEY"
-models = []
+models = [
+  "deepseek-v4-flash",
+  "deepseek-v4-flash:0731",
+  "deepseek-v4-pro",
+  "deepseek-v4-pro:0813",
+  "deepseek-v4.1-flash",
+  "gemma4:31b",
+  "glm-5.1",
+  "glm-5.2",
+  "glm-5.3",
+  "glm-5.3-flash",
+  "gpt-oss:120b",
+  "gpt-oss:20b",
+  "kimi-k2.5",
+  "kimi-k2.6",
+  "kimi-k2.7-code",
+  "kimi-k3",
+  "minimax-m2.5",
+  "minimax-m2.7",
+  "minimax-m3",
+  "mistral-large-3:675b",
+  "nemotron-3-nano:30b",
+  "nemotron-3-super",
+  "nemotron-3-ultra",
+  "qwen3.5:397b",
+]
+
+[model_settings."deepseek-v4-flash"]
+context_window = 1048576
+max_output_tokens = 1048576
+reasoning = true
+reasoning_levels = ["high"]
+
+[model_settings."deepseek-v4-flash:0731"]
+context_window = 1048576
+max_output_tokens = 1048576
+reasoning = true
+reasoning_levels = ["high"]
+
+[model_settings."deepseek-v4-pro"]
+context_window = 1048576
+max_output_tokens = 1048576
+reasoning = true
+reasoning_levels = ["high"]
+
+[model_settings."deepseek-v4-pro:0813"]
+context_window = 1048576
+max_output_tokens = 1048576
+reasoning = true
+reasoning_levels = ["high"]
+
+[model_settings."deepseek-v4.1-flash"]
+context_window = 1048576
+max_output_tokens = 384000
+reasoning = true
+reasoning_levels = ["low", "high"]
+
+[model_settings."gemma4:31b"]
+context_window = 262144
+max_output_tokens = 262144
+reasoning = true
+
+[model_settings."glm-5.1"]
+context_window = 202752
+max_output_tokens = 131072
+reasoning = true
+
+[model_settings."glm-5.2"]
+context_window = 976000
+max_output_tokens = 131072
+reasoning = true
+reasoning_levels = ["high"]
+
+[model_settings."glm-5.3"]
+context_window = 1048576
+max_output_tokens = 131072
+reasoning = true
+reasoning_levels = ["low", "high"]
+
+[model_settings."glm-5.3-flash"]
+context_window = 1000000
+max_output_tokens = 131072
+reasoning = true
+reasoning_levels = ["low", "high"]
+
+[model_settings."gpt-oss:120b"]
+context_window = 131072
+max_output_tokens = 32768
+reasoning = true
+reasoning_levels = ["low", "medium", "high"]
+
+[model_settings."gpt-oss:20b"]
+context_window = 131072
+max_output_tokens = 32768
+reasoning = true
+reasoning_levels = ["low", "medium", "high"]
+
+[model_settings."kimi-k2.5"]
+context_window = 262144
+max_output_tokens = 262144
+reasoning = true
+
+[model_settings."kimi-k2.6"]
+context_window = 262144
+max_output_tokens = 262144
+reasoning = true
+
+[model_settings."kimi-k2.7-code"]
+context_window = 262144
+max_output_tokens = 262144
+reasoning = true
+
+[model_settings."kimi-k3"]
+context_window = 1048576
+max_output_tokens = 131072
+reasoning = true
+reasoning_levels = ["low", "high"]
+
+[model_settings."minimax-m2.5"]
+context_window = 204800
+max_output_tokens = 131072
+reasoning = true
+
+[model_settings."minimax-m2.7"]
+context_window = 196608
+max_output_tokens = 196608
+reasoning = true
+
+[model_settings."minimax-m3"]
+context_window = 512000
+max_output_tokens = 131072
+reasoning = true
+reasoning_levels = ["low", "medium", "high"]
+
+[model_settings."mistral-large-3:675b"]
+context_window = 262144
+max_output_tokens = 262144
+reasoning = false
+
+[model_settings."nemotron-3-nano:30b"]
+context_window = 1048576
+max_output_tokens = 131072
+reasoning = true
+
+[model_settings."nemotron-3-super"]
+context_window = 262144
+max_output_tokens = 65536
+reasoning = true
+
+[model_settings."nemotron-3-ultra"]
+context_window = 262144
+max_output_tokens = 128000
+reasoning = true
+
+[model_settings."qwen3.5:397b"]
+context_window = 262144
+max_output_tokens = 65536
+reasoning = true
