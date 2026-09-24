@@ -97,8 +97,8 @@ def check(path: Path) -> list[str]:
             errors.append(f"model_settings.{model!r}.reasoning_default: must be one of the accepted levels")
     if path.parent.name not in ("cloud", "local"):
         errors.append("file must live in providers/cloud/ or providers/local/")
-    elif path.parent.name == "cloud" and auth == "none":
-        errors.append("cloud templates reference a key (auth = env)")
+    elif path.parent.name == "cloud" and auth != "env":
+        errors.append("cloud templates reference the key by variable (auth = env)")
     return errors
 
 

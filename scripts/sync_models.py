@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 import tomllib
 import urllib.request
@@ -132,6 +133,57 @@ def sync(db: dict, name: str, provider_id: str) -> str:
     return summary + ("; " + "; ".join(notes) if notes else "")
 
 
+#: Resellers not in models.dev: keep their own model ids (filtered to chat and
+#: coding models), take settings from the first-party entry with the same id.
+RESELLERS: dict[str, str] = {
+    "entrim": r".*",
+    "llmapi": (
+        r"^(gpt-(4\.1|4o|5|6)[\w.-]*|o1|o3(-mini)?|claude-[\w.-]+|gemini-[\w.-]+"
+        r"|glm-[\w.-]+|zai-glm-[\w.-]+|deepseek[\w./-]*|kimi-[\w.-]+|qwen[\w.-]*|qwq-plus"
+        r"|minimax-m[\w.-]*|grok-4[\w.-]*|mistral-large[\w.-]*|devstral[\w.-]*"
+        r"|codestral[\w.-]*|llama-[\w.-]+|gpt-oss-[\w.-]+|mimo-[\w.-]+)$"
+    ),
+}
+#: Ids that match the families above but are not chat models.
+NON_CHAT = re.compile(
+    r"(image|tts|transcribe|search|embed|ocr|live|-vl|v-turbo|\dv\b|glm-4\.\dv|omni|audio)",
+)
+#: models.dev providers tried in order for a reseller id (first-party first).
+FIRST_PARTY = (
+    "openai", "anthropic", "google", "deepseek", "zai", "moonshotai", "alibaba",
+    "minimax", "xai", "mistral", "groq", "togetherai", "fireworks-ai", "openrouter",
+)
+
+
+def _index(db: dict) -> dict[str, dict]:
+    """Model metadata by normalised id (lowercase, vendor prefix stripped)."""
+    index: dict[str, dict] = {}
+    for provider_id in (*FIRST_PARTY, *sorted(db)):
+        for model_id, model in db.get(provider_id, {}).get("models", {}).items():
+            key = model_id.lower().rsplit("/", 1)[-1]
+            index.setdefault(key, model)
+    return index
+
+
+def sync_reseller(db: dict, name: str, pattern: str) -> str:
+    path = ROOT / f"{name}.toml"
+    text = path.read_text(encoding="utf-8")
+    header = [line for line in text.splitlines() if line.startswith("#")]
+    data = tomllib.loads(text)
+    keep = re.compile(pattern)
+    index = _index(db)
+    models: dict[str, dict] = {}
+    for model_id in data.get("models", []):
+        if not keep.match(model_id) or NON_CHAT.search(model_id.lower()):
+            continue
+        match = index.get(model_id.lower().rsplit("/", 1)[-1])
+        models[model_id] = settings_for(match) if match else {}
+    data.pop("default_model", None)
+    path.write_text(render(header, data, models), encoding="utf-8")
+    matched = sum(1 for v in models.values() if v)
+    return f"{name}: {len(models)} models kept, {matched} with settings (reseller)"
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--source", default=SOURCE, help="models.dev api.json URL or local path")
@@ -146,6 +198,8 @@ def main() -> int:
         db = json.loads(Path(args.source).read_text(encoding="utf-8"))
     for name, provider_id in PROVIDERS.items():
         print(sync(db, name, provider_id))
+    for name, pattern in RESELLERS.items():
+        print(sync_reseller(db, name, pattern))
     return 0
 
 

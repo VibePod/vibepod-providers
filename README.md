@@ -33,10 +33,12 @@ run `refresh` after starting the server.
 | `dashscope` | `openai-chat` | `https://dashscope-intl.aliyuncs.com/compatible-mode/v1` | `DASHSCOPE_API_KEY` | 51 | [docs](https://www.alibabacloud.com/help/en/model-studio) |
 | `deepseek-anthropic` | `anthropic` | `https://api.deepseek.com/anthropic` | `DEEPSEEK_API_KEY` | 2 | [docs](https://api-docs.deepseek.com/guides/anthropic_api) |
 | `deepseek` | `openai-chat` | `https://api.deepseek.com/v1` | `DEEPSEEK_API_KEY` | 2 | [docs](https://api-docs.deepseek.com) |
+| `entrim` | `openai-chat` | `https://api.entrim.ai/v1` | `ENTRIM_API_KEY` | 5 | [docs](https://entrim.ai) |
 | `fireworks` | `openai-chat` | `https://api.fireworks.ai/inference/v1` | `FIREWORKS_API_KEY` | 25 | [docs](https://docs.fireworks.ai) |
 | `gemini-openai` | `openai-chat` | `https://generativelanguage.googleapis.com/v1beta/openai` | `GEMINI_API_KEY` | 21 | [docs](https://ai.google.dev/gemini-api/docs/openai) |
 | `groq` | `openai-chat` | `https://api.groq.com/openai/v1` | `GROQ_API_KEY` | 7 | [docs](https://console.groq.com/docs/openai) |
 | `huggingface` | `openai-chat` | `https://router.huggingface.co/v1` | `HF_TOKEN` | 76 | [docs](https://huggingface.co/docs/inference-providers) |
+| `llmapi` | `openai-chat` | `https://api.llmapi.ai/v1` | `LLMAPI_API_KEY` | 141 | [docs](https://llmapi.ai) |
 | `minimax-anthropic` | `anthropic` | `https://api.minimax.io/anthropic` | `MINIMAX_API_KEY` | 7 | [docs](https://platform.minimax.io/docs) |
 | `minimax` | `openai-chat` | `https://api.minimax.io/v1` | `MINIMAX_API_KEY` | 7 | [docs](https://platform.minimax.io/docs) |
 | `mistral` | `openai-chat` | `https://api.mistral.ai/v1` | `MISTRAL_API_KEY` | 24 | [docs](https://docs.mistral.ai) |
