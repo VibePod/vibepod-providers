@@ -95,12 +95,19 @@ def check(path: Path) -> list[str]:
         chosen = entry.get("reasoning_default", "")
         if chosen and chosen not in (levels or LEVELS):
             errors.append(f"model_settings.{model!r}.reasoning_default: must be one of the accepted levels")
+    if path.parent.name not in ("cloud", "local"):
+        errors.append("file must live in providers/cloud/ or providers/local/")
+    elif path.parent.name == "cloud" and auth == "none":
+        errors.append("cloud templates reference a key (auth = env)")
     return errors
 
 
 def main() -> int:
     root = Path(__file__).resolve().parent.parent / "providers"
-    files = sorted(root.glob("*.toml"))
+    files = sorted(root.glob("*/*.toml"))
+    stray = sorted(p for p in root.glob("*.toml"))
+    for path in stray:
+        print(f"FAIL {path.relative_to(root.parent)}\n     - place files under providers/cloud/ or providers/local/")
     if not files:
         print("no provider files found", file=sys.stderr)
         return 1
@@ -113,7 +120,7 @@ def main() -> int:
             print(f"     - {error}")
         failed += bool(errors)
     print(f"{len(files) - failed}/{len(files)} valid")
-    return 1 if failed else 0
+    return 1 if failed or stray else 0
 
 
 if __name__ == "__main__":

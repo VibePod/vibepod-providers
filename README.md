@@ -5,22 +5,27 @@ provider registry (`vp provider`). Each file is a credential-free provider
 definition that `vp provider import` turns into a ready-to-use provider.
 
 ```bash
-vp provider import https://raw.githubusercontent.com/VibePod/vibepod-providers/main/providers/openrouter.toml
-export OPENROUTER_API_KEY=...          # hosted templates reference a variable, no key is stored
+# cloud: vendor API, key read from an environment variable
+vp provider import https://raw.githubusercontent.com/VibePod/vibepod-providers/main/providers/cloud/openrouter.toml
+export OPENROUTER_API_KEY=...          # cloud templates reference a variable, no key is stored
 vp provider refresh openrouter         # pull the model list, pick models and a default
 vp run pi --provider openrouter
+
+# local / self-hosted: no key, sync models once the server runs
+vp provider import https://raw.githubusercontent.com/VibePod/vibepod-providers/main/providers/local/ollama.toml
+vp provider refresh ollama
 ```
 
-Hosted templates carry a model list with context window, output limit, reasoning
+Cloud templates carry a model list with context window, output limit, reasoning
 flag, and accepted reasoning levels, synced from the open
 [models.dev](https://models.dev) database (tool-calling, non-deprecated models
 only). No default model is chosen for you. `vp provider refresh` re-syncs the
-list from the endpoint itself at any time. Local templates ship without models;
+list from the endpoint itself at any time. Local and self-hosted templates ship without models;
 run `refresh` after starting the server.
 
-## Hosted endpoints
+## Cloud providers
 
-<!-- hosted:start -->
+<!-- cloud:start -->
 | Name | Protocol | Base URL | Key variable | Models | Reference |
 | --- | --- | --- | --- | --- | --- |
 | `anthropic` | `anthropic` | `https://api.anthropic.com` | `ANTHROPIC_API_KEY` | 15 | [docs](https://docs.anthropic.com/en/api) |
@@ -47,13 +52,13 @@ run `refresh` after starting the server.
 | `xai` | `openai-chat` | `https://api.x.ai/v1` | `XAI_API_KEY` | 7 | [docs](https://docs.x.ai) |
 | `zai-anthropic` | `anthropic` | `https://api.z.ai/api/anthropic` | `ZHIPU_API_KEY` | 18 | [docs](https://docs.z.ai) |
 | `zai` | `openai-chat` | `https://api.z.ai/api/paas/v4` | `ZHIPU_API_KEY` | 18 | [docs](https://docs.z.ai) |
-<!-- hosted:end -->
+<!-- cloud:end -->
 
 Endpoints marked `-anthropic` speak the Anthropic Messages API (for Claude Code
 and other Anthropic-native agents); the plain entries speak OpenAI Chat
 Completions, `openai` uses the Responses API.
 
-## Local servers
+## Local and self-hosted servers
 
 <!-- local:start -->
 | Name | Protocol | Base URL | Key variable | Models | Reference |
@@ -78,8 +83,10 @@ The exchange format is documented in
 [Sharing providers](https://github.com/VibePod/vibepod-cli/blob/main/docs/providers.md#sharing-providers).
 Rules for this repository:
 
-- one provider per file, `providers/<name>.toml`, `name` equal to the filename;
-- never a key, token, or credential of any kind; hosted templates use
+- one provider per file, `name` equal to the filename, placed by where it runs:
+  `providers/cloud/<name>.toml` for vendor-hosted APIs (always `auth = "env"`),
+  `providers/local/<name>.toml` for servers you run yourself (usually `auth = "none"`);
+- never a key, token, or credential of any kind; cloud templates use
   `auth = "env"` with the vendor's conventional variable name;
 - `base_url` exactly as the vendor documents it (Anthropic-style endpoints
   without the `/v1` suffix); a `# Docs:` comment linking the reference;
@@ -87,13 +94,14 @@ Rules for this repository:
   vendor documentation (context window, output limit, reasoning levels).
 
 `python scripts/validate.py` checks every file; CI runs it on each pull request.
-`python scripts/sync_models.py` refreshes the hosted model lists and settings
+`python scripts/sync_models.py` refreshes the cloud model lists and settings
 from models.dev and `python scripts/build_readme.py` regenerates the tables;
-run both before opening a pull request that touches hosted templates.
+run both before opening a pull request that touches cloud templates.
 
 ## Contributing
 
-Open a pull request adding or updating a file under `providers/`. Reviewers
+Open a pull request adding or updating a file under `providers/cloud/` or
+`providers/local/`. Reviewers
 verify the `base_url` against the vendor documentation, since that is where an
 imported provider will send the user's key.
 

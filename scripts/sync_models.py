@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Fill hosted templates with model lists and settings from models.dev.
+"""Fill cloud templates with model lists and settings from models.dev.
 
 models.dev (https://models.dev) is the open model database opencode uses. For
-every hosted template mapped below, the script rewrites `models` and
+every cloud template mapped below, the script rewrites `models` and
 `[model_settings]` from it: tool-calling, non-deprecated models only, context
 window and output limit from `limit`, the `reasoning` flag, and effort levels
 mapped onto VibePod's portable set. It never picks a default model and never
@@ -21,7 +21,7 @@ import urllib.request
 from pathlib import Path
 
 SOURCE = "https://models.dev/api.json"
-ROOT = Path(__file__).resolve().parent.parent / "providers"
+ROOT = Path(__file__).resolve().parent.parent / "providers" / "cloud"
 
 #: template name -> models.dev provider id
 PROVIDERS = {
@@ -137,7 +137,10 @@ def main() -> int:
     parser.add_argument("--source", default=SOURCE, help="models.dev api.json URL or local path")
     args = parser.parse_args()
     if args.source.startswith(("http://", "https://")):
-        with urllib.request.urlopen(args.source, timeout=30) as response:
+        request = urllib.request.Request(
+            args.source, headers={"User-Agent": "vibepod-providers-sync/1"}
+        )
+        with urllib.request.urlopen(request, timeout=30) as response:
             db = json.load(response)
     else:
         db = json.loads(Path(args.source).read_text(encoding="utf-8"))

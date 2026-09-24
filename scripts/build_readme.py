@@ -15,33 +15,30 @@ HEADER = (
 )
 
 
-def row(path: Path) -> tuple[bool, str]:
+def row(path: Path) -> str:
     text = path.read_text(encoding="utf-8")
     data = tomllib.loads(text)
     docs = next((l.split("Docs: ", 1)[1] for l in text.splitlines() if l.startswith("# Docs: ")), "")
     key = f"`{data['key_env']}`" if data.get("auth") == "env" else "none"
-    local = data["base_url"].startswith("http://host.docker.internal")
-    return local, (
+    return (
         f"| `{data['name']}` | `{data['protocol']}` | `{data['base_url']}` | {key} "
         f"| {len(data.get('models', []))} | [docs]({docs}) |"
     )
 
 
 def main() -> int:
-    hosted, local = [], []
-    for path in sorted((ROOT / "providers").glob("*.toml")):
-        is_local, line = row(path)
-        (local if is_local else hosted).append(line)
+    cloud = [row(p) for p in sorted((ROOT / "providers" / "cloud").glob("*.toml"))]
+    local = [row(p) for p in sorted((ROOT / "providers" / "local").glob("*.toml"))]
     readme = ROOT / "README.md"
     text = readme.read_text(encoding="utf-8")
-    for marker, rows in (("hosted", hosted), ("local", local)):
+    for marker, rows in (("cloud", cloud), ("local", local)):
         block = f"<!-- {marker}:start -->\n{HEADER}\n" + "\n".join(rows) + f"\n<!-- {marker}:end -->"
         text, n = re.subn(rf"<!-- {marker}:start -->.*?<!-- {marker}:end -->", block, text, flags=re.S)
         if n != 1:
             print(f"marker {marker} not found in README.md", file=sys.stderr)
             return 1
     readme.write_text(text, encoding="utf-8")
-    print(f"{len(hosted)} hosted, {len(local)} local")
+    print(f"{len(cloud)} cloud, {len(local)} local")
     return 0
 
 
