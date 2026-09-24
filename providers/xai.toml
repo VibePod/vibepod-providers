@@ -1,0 +1,10 @@
+# VibePod provider definition. Contains no credentials.
+# xAI Grok.
+# Docs: https://docs.x.ai
+version = 1
+name = "xai"
+protocol = "openai-chat"
+base_url = "https://api.x.ai/v1"
+auth = "env"
+key_env = "XAI_API_KEY"
+models = []

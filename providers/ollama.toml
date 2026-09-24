@@ -1,0 +1,9 @@
+# VibePod provider definition. Contains no credentials.
+# Ollama on the Docker host; bind it to 0.0.0.0. Jcode needs the LAN IP instead of this hostname.
+# Docs: https://docs.ollama.com/api/openai-compatibility
+version = 1
+name = "ollama"
+protocol = "openai-chat"
+base_url = "http://host.docker.internal:11434/v1"
+auth = "none"
+models = []

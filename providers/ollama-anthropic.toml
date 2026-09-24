@@ -1,0 +1,9 @@
+# VibePod provider definition. Contains no credentials.
+# Ollama on the Docker host, Anthropic-compatible endpoint (recent Ollama versions).
+# Docs: https://docs.ollama.com/api/anthropic-compatibility
+version = 1
+name = "ollama-anthropic"
+protocol = "anthropic"
+base_url = "http://host.docker.internal:11434"
+auth = "none"
+models = []

@@ -1,0 +1,10 @@
+# VibePod provider definition. Contains no credentials.
+# Nebius AI Studio (EU).
+# Docs: https://docs.nebius.com/studio/inference
+version = 1
+name = "nebius"
+protocol = "openai-chat"
+base_url = "https://api.studio.nebius.com/v1"
+auth = "env"
+key_env = "NEBIUS_API_KEY"
+models = []

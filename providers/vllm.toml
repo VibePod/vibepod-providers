@@ -1,0 +1,9 @@
+# VibePod provider definition. Contains no credentials.
+# vLLM OpenAI-compatible server.
+# Docs: https://docs.vllm.ai/en/latest/serving/openai_compatible_server.html
+version = 1
+name = "vllm"
+protocol = "openai-chat"
+base_url = "http://host.docker.internal:8000/v1"
+auth = "none"
+models = []

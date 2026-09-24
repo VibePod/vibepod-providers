@@ -1,0 +1,9 @@
+# VibePod provider definition. Contains no credentials.
+# llama.cpp server.
+# Docs: https://github.com/ggml-org/llama.cpp/tree/master/tools/server
+version = 1
+name = "llamacpp"
+protocol = "openai-chat"
+base_url = "http://host.docker.internal:8080/v1"
+auth = "none"
+models = []

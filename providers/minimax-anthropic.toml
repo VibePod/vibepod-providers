@@ -1,0 +1,10 @@
+# VibePod provider definition. Contains no credentials.
+# MiniMax, Anthropic-compatible endpoint.
+# Docs: https://platform.minimax.io/docs
+version = 1
+name = "minimax-anthropic"
+protocol = "anthropic"
+base_url = "https://api.minimax.io/anthropic"
+auth = "env"
+key_env = "MINIMAX_API_KEY"
+models = []

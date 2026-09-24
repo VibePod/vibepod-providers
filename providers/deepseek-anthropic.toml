@@ -1,0 +1,10 @@
+# VibePod provider definition. Contains no credentials.
+# DeepSeek, Anthropic-compatible endpoint.
+# Docs: https://api-docs.deepseek.com/guides/anthropic_api
+version = 1
+name = "deepseek-anthropic"
+protocol = "anthropic"
+base_url = "https://api.deepseek.com/anthropic"
+auth = "env"
+key_env = "DEEPSEEK_API_KEY"
+models = []

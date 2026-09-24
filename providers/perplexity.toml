@@ -1,0 +1,10 @@
+# VibePod provider definition. Contains no credentials.
+# Perplexity Sonar.
+# Docs: https://docs.perplexity.ai
+version = 1
+name = "perplexity"
+protocol = "openai-chat"
+base_url = "https://api.perplexity.ai"
+auth = "env"
+key_env = "PERPLEXITY_API_KEY"
+models = []

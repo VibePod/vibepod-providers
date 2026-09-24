@@ -1,0 +1,10 @@
+# VibePod provider definition. Contains no credentials.
+# Z.ai (GLM), Anthropic-compatible endpoint.
+# Docs: https://docs.z.ai
+version = 1
+name = "zai-anthropic"
+protocol = "anthropic"
+base_url = "https://api.z.ai/api/anthropic"
+auth = "env"
+key_env = "ZAI_API_KEY"
+models = []

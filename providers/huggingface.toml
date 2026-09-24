@@ -1,0 +1,10 @@
+# VibePod provider definition. Contains no credentials.
+# Hugging Face Inference Providers router.
+# Docs: https://huggingface.co/docs/inference-providers
+version = 1
+name = "huggingface"
+protocol = "openai-chat"
+base_url = "https://router.huggingface.co/v1"
+auth = "env"
+key_env = "HF_TOKEN"
+models = []

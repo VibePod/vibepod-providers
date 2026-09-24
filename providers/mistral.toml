@@ -1,0 +1,10 @@
+# VibePod provider definition. Contains no credentials.
+# Mistral AI.
+# Docs: https://docs.mistral.ai
+version = 1
+name = "mistral"
+protocol = "openai-chat"
+base_url = "https://api.mistral.ai/v1"
+auth = "env"
+key_env = "MISTRAL_API_KEY"
+models = []

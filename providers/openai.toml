@@ -1,0 +1,10 @@
+# VibePod provider definition. Contains no credentials.
+# OpenAI. Responses API; for Chat Completions import with --name and edit the protocol.
+# Docs: https://platform.openai.com/docs/api-reference
+version = 1
+name = "openai"
+protocol = "openai-responses"
+base_url = "https://api.openai.com/v1"
+auth = "env"
+key_env = "OPENAI_API_KEY"
+models = []

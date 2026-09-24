@@ -1,0 +1,10 @@
+# VibePod provider definition. Contains no credentials.
+# Google Gemini, OpenAI-compatible endpoint.
+# Docs: https://ai.google.dev/gemini-api/docs/openai
+version = 1
+name = "gemini-openai"
+protocol = "openai-chat"
+base_url = "https://generativelanguage.googleapis.com/v1beta/openai"
+auth = "env"
+key_env = "GEMINI_API_KEY"
+models = []

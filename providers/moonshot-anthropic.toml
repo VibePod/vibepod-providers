@@ -1,0 +1,10 @@
+# VibePod provider definition. Contains no credentials.
+# Moonshot AI (Kimi), Anthropic-compatible endpoint.
+# Docs: https://platform.moonshot.ai/docs
+version = 1
+name = "moonshot-anthropic"
+protocol = "anthropic"
+base_url = "https://api.moonshot.ai/anthropic"
+auth = "env"
+key_env = "MOONSHOT_API_KEY"
+models = []

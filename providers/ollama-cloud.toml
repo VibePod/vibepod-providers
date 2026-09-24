@@ -1,0 +1,10 @@
+# VibePod provider definition. Contains no credentials.
+# Ollama Cloud.
+# Docs: https://docs.ollama.com/cloud
+version = 1
+name = "ollama-cloud"
+protocol = "openai-chat"
+base_url = "https://ollama.com/v1"
+auth = "env"
+key_env = "OLLAMA_API_KEY"
+models = []

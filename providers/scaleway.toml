@@ -1,0 +1,10 @@
+# VibePod provider definition. Contains no credentials.
+# Scaleway Generative APIs (EU).
+# Docs: https://www.scaleway.com/en/docs/generative-apis
+version = 1
+name = "scaleway"
+protocol = "openai-chat"
+base_url = "https://api.scaleway.ai/v1"
+auth = "env"
+key_env = "SCW_SECRET_KEY"
+models = []

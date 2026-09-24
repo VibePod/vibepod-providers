@@ -1,0 +1,10 @@
+# VibePod provider definition. Contains no credentials.
+# Together AI.
+# Docs: https://docs.together.ai
+version = 1
+name = "together"
+protocol = "openai-chat"
+base_url = "https://api.together.xyz/v1"
+auth = "env"
+key_env = "TOGETHER_API_KEY"
+models = []

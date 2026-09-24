@@ -1,0 +1,10 @@
+# VibePod provider definition. Contains no credentials.
+# Anthropic Messages API. Clients append /v1 themselves.
+# Docs: https://docs.anthropic.com/en/api
+version = 1
+name = "anthropic"
+protocol = "anthropic"
+base_url = "https://api.anthropic.com"
+auth = "env"
+key_env = "ANTHROPIC_API_KEY"
+models = []

@@ -1,0 +1,10 @@
+# VibePod provider definition. Contains no credentials.
+# Z.ai (GLM), OpenAI-compatible endpoint.
+# Docs: https://docs.z.ai
+version = 1
+name = "zai"
+protocol = "openai-chat"
+base_url = "https://api.z.ai/api/paas/v4"
+auth = "env"
+key_env = "ZAI_API_KEY"
+models = []

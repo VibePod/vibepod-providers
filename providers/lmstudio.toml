@@ -1,0 +1,9 @@
+# VibePod provider definition. Contains no credentials.
+# LM Studio local server.
+# Docs: https://lmstudio.ai/docs/app/api/endpoints/openai
+version = 1
+name = "lmstudio"
+protocol = "openai-chat"
+base_url = "http://host.docker.internal:1234/v1"
+auth = "none"
+models = []

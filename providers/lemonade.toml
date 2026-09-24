@@ -1,0 +1,9 @@
+# VibePod provider definition. Contains no credentials.
+# Lemonade Server (AMD).
+# Docs: https://lemonade-server.ai/docs
+version = 1
+name = "lemonade"
+protocol = "openai-chat"
+base_url = "http://host.docker.internal:8000/api/v1"
+auth = "none"
+models = []

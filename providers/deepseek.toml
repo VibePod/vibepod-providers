@@ -1,0 +1,10 @@
+# VibePod provider definition. Contains no credentials.
+# DeepSeek, OpenAI-compatible endpoint.
+# Docs: https://api-docs.deepseek.com
+version = 1
+name = "deepseek"
+protocol = "openai-chat"
+base_url = "https://api.deepseek.com/v1"
+auth = "env"
+key_env = "DEEPSEEK_API_KEY"
+models = []

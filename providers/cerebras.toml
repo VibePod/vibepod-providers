@@ -1,0 +1,10 @@
+# VibePod provider definition. Contains no credentials.
+# Cerebras.
+# Docs: https://inference-docs.cerebras.ai
+version = 1
+name = "cerebras"
+protocol = "openai-chat"
+base_url = "https://api.cerebras.ai/v1"
+auth = "env"
+key_env = "CEREBRAS_API_KEY"
+models = []

@@ -1,0 +1,10 @@
+# VibePod provider definition. Contains no credentials.
+# Fireworks AI.
+# Docs: https://docs.fireworks.ai
+version = 1
+name = "fireworks"
+protocol = "openai-chat"
+base_url = "https://api.fireworks.ai/inference/v1"
+auth = "env"
+key_env = "FIREWORKS_API_KEY"
+models = []
