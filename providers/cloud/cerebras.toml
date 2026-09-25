@@ -19,7 +19,7 @@ reasoning = true
 reasoning_levels = ["low", "medium", "high"]
 
 [model_settings."qwen-3.8-27b"]
-context_window = 65536
-max_output_tokens = 32768
+context_window = 131072
+max_output_tokens = 40960
 reasoning = true
 reasoning_levels = ["off", "low", "medium", "high"]
