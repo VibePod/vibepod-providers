@@ -34,7 +34,8 @@ def check(path: Path) -> list[str]:
         errors.append(f"credential-like keys are forbidden: {sorted(unknown & SECRET_KEYS)}")
     elif unknown:
         errors.append(f"unknown keys: {sorted(unknown)}")
-    if data.get("version") != 1:
+    version = data.get("version")
+    if isinstance(version, bool) or version != 1:
         errors.append("version must be 1")
     name = data.get("name")
     if not isinstance(name, str) or not re.fullmatch(r"[a-z0-9][a-z0-9_-]{0,63}", name):
@@ -57,7 +58,10 @@ def check(path: Path) -> list[str]:
     if auth not in AUTH:
         errors.append(f"auth must be one of {sorted(AUTH)}")
     key_env = data.get("key_env", "")
-    if auth == "env" and not re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", str(key_env)):
+    if not isinstance(key_env, str):
+        errors.append("key_env must be a string")
+        key_env = ""
+    if auth == "env" and not re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", key_env):
         errors.append("auth = env requires a key_env variable name")
     if auth != "env" and key_env:
         errors.append("key_env only applies to auth = env")
@@ -68,6 +72,9 @@ def check(path: Path) -> list[str]:
     if len(set(models)) != len(models):
         errors.append("models must be unique")
     default = data.get("default_model", "")
+    if not isinstance(default, str):
+        errors.append("default_model must be a string")
+        default = ""
     if default and default not in models:
         errors.append("default_model must be one of models")
     settings = data.get("model_settings", {})
@@ -90,6 +97,10 @@ def check(path: Path) -> list[str]:
         if not isinstance(levels, list) or any(level not in LEVELS for level in levels) or len(set(levels)) != len(levels):
             errors.append(f"model_settings.{model!r}.reasoning_levels: distinct values from {LEVELS}")
             levels = []
+        if "reasoning" in entry and not isinstance(entry["reasoning"], bool):
+            errors.append(f"model_settings.{model!r}.reasoning: true or false required")
+        if not isinstance(entry.get("reasoning_default", ""), str):
+            errors.append(f"model_settings.{model!r}.reasoning_default: string required")
         if entry.get("reasoning") is False and (levels or entry.get("reasoning_default")):
             errors.append(f"model_settings.{model!r}: non-reasoning model with reasoning levels")
         chosen = entry.get("reasoning_default", "")

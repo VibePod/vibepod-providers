@@ -172,12 +172,14 @@ def sync_reseller(db: dict, name: str, pattern: str) -> str:
     data = tomllib.loads(text)
     keep = re.compile(pattern)
     index = _index(db)
+    existing = data.get("model_settings", {})
     models: dict[str, dict] = {}
     for model_id in data.get("models", []):
         if not keep.match(model_id) or NON_CHAT.search(model_id.lower()):
             continue
         match = index.get(model_id.lower().rsplit("/", 1)[-1])
-        models[model_id] = settings_for(match) if match else {}
+        # Without upstream metadata, keep whatever was curated by hand.
+        models[model_id] = settings_for(match) if match else dict(existing.get(model_id, {}))
     data.pop("default_model", None)
     path.write_text(render(header, data, models), encoding="utf-8")
     matched = sum(1 for v in models.values() if v)
