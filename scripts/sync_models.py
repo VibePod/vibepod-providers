@@ -8,6 +8,9 @@ window and output limit from `limit`, the `reasoning` flag, and effort levels
 mapped onto VibePod's portable set. It never picks a default model and never
 touches `base_url`/`auth`; URL and variable mismatches are only reported.
 
+Gateways whose model ids models.dev does not carry (see CATALOGS) are listed
+from their own public model endpoint instead, one template per region.
+
 Usage: python scripts/sync_models.py [--source api.json]
 """
 
@@ -186,22 +189,75 @@ def sync_reseller(db: dict, name: str, pattern: str) -> str:
     return f"{name}: {len(models)} models kept, {matched} with settings (reseller)"
 
 
+#: Gateways with a public model catalog: template name -> (catalog URL, kept
+#: geolocations). Regional routers serve the whole catalog, so a regional
+#: template lists only models whose inference stays in that region.
+CATALOGS: dict[str, tuple[str, frozenset[str]]] = {
+    "requesty": ("https://router.requesty.ai/v1/models", frozenset({"global"})),
+    "requesty-anthropic": ("https://router.requesty.ai/v1/models", frozenset({"global"})),
+    "requesty-eu": ("https://router.eu.requesty.ai/v1/models", frozenset({"eu"})),
+    "requesty-eu-anthropic": ("https://router.eu.requesty.ai/v1/models", frozenset({"eu"})),
+}
+
+
+def fetch_json(url: str):
+    request = urllib.request.Request(url, headers={"User-Agent": "vibepod-providers-sync/1"})
+    with urllib.request.urlopen(request, timeout=30) as response:
+        return json.load(response)
+
+
+def sync_catalog(db: dict, name: str, catalog: list[dict], regions: frozenset[str]) -> str:
+    path = ROOT / f"{name}.toml"
+    text = path.read_text(encoding="utf-8")
+    header = [line for line in text.splitlines() if line.startswith("#")]
+    data = tomllib.loads(text)
+    index = _index(db)
+    models: dict[str, dict] = {}
+    for model in sorted(catalog, key=lambda m: m["id"]):
+        model_id = model["id"]
+        if (
+            not model.get("supports_tool_calling")
+            or model.get("geolocation") not in regions
+            or NON_CHAT.search(model_id.lower())
+        ):
+            continue
+        # "bedrock/claude-opus-5@eu-central-1" -> first-party "claude-opus-5"
+        match = index.get(model_id.lower().rsplit("/", 1)[-1].split("@", 1)[0])
+        upstream = settings_for(match) if match else {}
+        # The gateway's own limits describe the deployment actually served.
+        own = settings_for({
+            "limit": {"context": model.get("context_window"), "output": model.get("max_output_tokens")},
+            "reasoning": model.get("supports_reasoning"),
+        })
+        settings = {**upstream, **own} | {
+            k: upstream[k] for k in ("reasoning", "reasoning_levels") if k in upstream
+        }
+        if settings.get("max_output_tokens", 0) > settings.get("context_window", float("inf")):
+            settings["max_output_tokens"] = settings["context_window"]
+        models[model_id] = settings
+    data.pop("default_model", None)
+    path.write_text(render(header, data, models), encoding="utf-8")
+    matched = sum(1 for v in models.values() if "reasoning_levels" in v)
+    return f"{name}: {len(models)} models, {matched} with reasoning levels (catalog)"
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--source", default=SOURCE, help="models.dev api.json URL or local path")
     args = parser.parse_args()
     if args.source.startswith(("http://", "https://")):
-        request = urllib.request.Request(
-            args.source, headers={"User-Agent": "vibepod-providers-sync/1"}
-        )
-        with urllib.request.urlopen(request, timeout=30) as response:
-            db = json.load(response)
+        db = fetch_json(args.source)
     else:
         db = json.loads(Path(args.source).read_text(encoding="utf-8"))
     for name, provider_id in PROVIDERS.items():
         print(sync(db, name, provider_id))
     for name, pattern in RESELLERS.items():
         print(sync_reseller(db, name, pattern))
+    catalogs: dict[str, list[dict]] = {}
+    for name, (url, regions) in CATALOGS.items():
+        if url not in catalogs:
+            catalogs[url] = fetch_json(url)["data"]
+        print(sync_catalog(db, name, catalogs[url], regions))
     return 0
 
 
