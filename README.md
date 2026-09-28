@@ -52,6 +52,10 @@ without models; run `refresh` after starting the server.
 | `openai` | `openai-responses` | `https://api.openai.com/v1` | `OPENAI_API_KEY` | 31 | [docs](https://platform.openai.com/docs/api-reference) |
 | `openrouter` | `openai-chat` | `https://openrouter.ai/api/v1` | `OPENROUTER_API_KEY` | 319 | [docs](https://openrouter.ai/docs) |
 | `perplexity` | `openai-chat` | `https://api.perplexity.ai` | `PERPLEXITY_API_KEY` | 0 | [docs](https://docs.perplexity.ai) |
+| `requesty-anthropic` | `anthropic` | `https://router.requesty.ai` | `REQUESTY_API_KEY` | 338 | [docs](https://docs.requesty.ai/quickstart) |
+| `requesty-eu-anthropic` | `anthropic` | `https://router.eu.requesty.ai` | `REQUESTY_API_KEY` | 196 | [docs](https://docs.requesty.ai/features/eu-routing) |
+| `requesty-eu` | `openai-chat` | `https://router.eu.requesty.ai/v1` | `REQUESTY_API_KEY` | 196 | [docs](https://docs.requesty.ai/features/eu-routing) |
+| `requesty` | `openai-chat` | `https://router.requesty.ai/v1` | `REQUESTY_API_KEY` | 338 | [docs](https://docs.requesty.ai/quickstart) |
 | `scaleway` | `openai-chat` | `https://api.scaleway.ai/v1` | `SCALEWAY_API_KEY` | 12 | [docs](https://www.scaleway.com/en/docs/generative-apis) |
 | `together` | `openai-chat` | `https://api.together.xyz/v1` | `TOGETHER_API_KEY` | 22 | [docs](https://docs.together.ai) |
 | `xai` | `openai-chat` | `https://api.x.ai/v1` | `XAI_API_KEY` | 7 | [docs](https://docs.x.ai) |
@@ -62,6 +66,10 @@ without models; run `refresh` after starting the server.
 Endpoints marked `-anthropic` speak the Anthropic Messages API (for Claude Code
 and other Anthropic-native agents); the plain entries speak OpenAI Chat
 Completions, `openai` uses the Responses API.
+
+Entries suffixed with a region (`requesty-eu`) use the gateway's regional
+endpoint and list only models the gateway serves from that region, so both the
+routing and the inference stay there. The unsuffixed entry routes globally.
 
 ## Local and self-hosted servers
 
@@ -110,8 +118,9 @@ run both before opening a pull request that touches cloud templates.
 Open a pull request adding or updating a file under `providers/cloud/` or
 `providers/local/`. Reviewers verify the `base_url` against the vendor
 documentation, since that is where an imported provider will send the user's
-key. New cloud providers also need an entry in `PROVIDERS` (models.dev id) or
-`RESELLERS` in `scripts/sync_models.py`.
+key. New cloud providers also need an entry in `PROVIDERS` (models.dev id),
+`RESELLERS`, or `CATALOGS` (gateways with a public model endpoint, one entry
+per regional template) in `scripts/sync_models.py`.
 
 ## License
 

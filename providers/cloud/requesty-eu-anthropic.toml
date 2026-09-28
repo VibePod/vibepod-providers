@@ -1,0 +1,1305 @@
+# VibePod provider definition. Contains no credentials.
+# Requesty AI gateway, Anthropic-compatible EU endpoint (Frankfurt); lists only
+# models Requesty serves from EU regions, so inference stays in the EU.
+# Docs: https://docs.requesty.ai/features/eu-routing
+version = 1
+name = "requesty-eu-anthropic"
+protocol = "anthropic"
+base_url = "https://router.eu.requesty.ai"
+auth = "env"
+key_env = "REQUESTY_API_KEY"
+models = [
+  "azure/gpt-4.1-mini@francecentral",
+  "azure/gpt-4.1-nano@francecentral",
+  "azure/gpt-4.1-nano@germanywestcentral",
+  "azure/gpt-4.1-nano@swedencentral",
+  "azure/gpt-4.1-nano@westeurope",
+  "azure/gpt-4.1@francecentral",
+  "azure/gpt-4.1@germanywestcentral",
+  "azure/gpt-4.1@swedencentral",
+  "azure/gpt-4.1@westeurope",
+  "azure/gpt-4o-mini@germanywestcentral",
+  "azure/gpt-4o-mini@swedencentral",
+  "azure/gpt-4o-mini@westeurope",
+  "azure/gpt-5-mini@francecentral",
+  "azure/gpt-5-mini@germanywestcentral",
+  "azure/gpt-5-mini@swedencentral",
+  "azure/gpt-5-mini@westeurope",
+  "azure/gpt-5-nano@francecentral",
+  "azure/gpt-5-nano@germanywestcentral",
+  "azure/gpt-5-nano@swedencentral",
+  "azure/gpt-5-nano@westeurope",
+  "azure/gpt-5.1@francecentral",
+  "azure/gpt-5.1@swedencentral",
+  "azure/gpt-5.4@francecentral",
+  "azure/gpt-5.4@germanywestcentral",
+  "azure/gpt-5.4@swedencentral",
+  "azure/gpt-5.4@westeurope",
+  "azure/gpt-5.5@germanywestcentral",
+  "azure/gpt-5.5@swedencentral",
+  "azure/gpt-5.5@westeurope",
+  "azure/gpt-5.6-luna@francecentral",
+  "azure/gpt-5.6-luna@germanywestcentral",
+  "azure/gpt-5.6-luna@swedencentral",
+  "azure/gpt-5.6-luna@westeurope",
+  "azure/gpt-5.6-sol@francecentral",
+  "azure/gpt-5.6-sol@germanywestcentral",
+  "azure/gpt-5.6-sol@swedencentral",
+  "azure/gpt-5.6-sol@westeurope",
+  "azure/gpt-5.6-terra@francecentral",
+  "azure/gpt-5.6-terra@germanywestcentral",
+  "azure/gpt-5.6-terra@swedencentral",
+  "azure/gpt-5.6-terra@westeurope",
+  "azure/gpt-5@francecentral",
+  "azure/gpt-5@germanywestcentral",
+  "azure/gpt-5@swedencentral",
+  "azure/gpt-5@westeurope",
+  "azure/gpt-6-luna@francecentral",
+  "azure/gpt-6-luna@germanywestcentral",
+  "azure/gpt-6-luna@swedencentral",
+  "azure/gpt-6-luna@westeurope",
+  "azure/gpt-6-sol@francecentral",
+  "azure/gpt-6-sol@germanywestcentral",
+  "azure/gpt-6-sol@swedencentral",
+  "azure/gpt-6-sol@westeurope",
+  "azure/o4-mini@francecentral",
+  "azure/o4-mini@germanywestcentral",
+  "azure/o4-mini@swedencentral",
+  "azure/o4-mini@westeurope",
+  "bedrock/claude-haiku-4-5@eu-central-1",
+  "bedrock/claude-haiku-4-5@eu-north-1",
+  "bedrock/claude-haiku-4-5@eu-west-1",
+  "bedrock/claude-haiku-4-5@eu-west-3",
+  "bedrock/claude-opus-4-5@eu-central-1",
+  "bedrock/claude-opus-4-5@eu-north-1",
+  "bedrock/claude-opus-4-5@eu-west-1",
+  "bedrock/claude-opus-4-5@eu-west-3",
+  "bedrock/claude-opus-4-7@eu-central-1",
+  "bedrock/claude-opus-4-7@eu-north-1",
+  "bedrock/claude-opus-4-7@eu-west-1",
+  "bedrock/claude-opus-4-7@eu-west-3",
+  "bedrock/claude-opus-4-8@eu-central-1",
+  "bedrock/claude-opus-4-8@eu-north-1",
+  "bedrock/claude-opus-4-8@eu-west-1",
+  "bedrock/claude-opus-4-8@eu-west-3",
+  "bedrock/claude-opus-5-5@eu-central-1",
+  "bedrock/claude-opus-5-5@eu-north-1",
+  "bedrock/claude-opus-5-5@eu-west-1",
+  "bedrock/claude-opus-5-5@eu-west-3",
+  "bedrock/claude-opus-5@eu-central-1",
+  "bedrock/claude-opus-5@eu-north-1",
+  "bedrock/claude-opus-5@eu-west-1",
+  "bedrock/claude-opus-5@eu-west-3",
+  "bedrock/claude-sonnet-4-5@eu-central-1",
+  "bedrock/claude-sonnet-4-5@eu-north-1",
+  "bedrock/claude-sonnet-4-5@eu-west-1",
+  "bedrock/claude-sonnet-4-5@eu-west-3",
+  "bedrock/claude-sonnet-4-6@eu-central-1",
+  "bedrock/claude-sonnet-4-6@eu-north-1",
+  "bedrock/claude-sonnet-4-6@eu-west-1",
+  "bedrock/claude-sonnet-4-6@eu-west-3",
+  "bedrock/claude-sonnet-4@eu-central-1",
+  "bedrock/claude-sonnet-4@eu-north-1",
+  "bedrock/claude-sonnet-4@eu-west-1",
+  "bedrock/claude-sonnet-4@eu-west-3",
+  "bedrock/claude-sonnet-5@eu-central-1",
+  "bedrock/claude-sonnet-5@eu-north-1",
+  "bedrock/claude-sonnet-5@eu-west-1",
+  "bedrock/kimi-k2.5@eu-north-1",
+  "bedrock/minimax-m2.5@eu-central-1",
+  "bedrock/minimax-m2.5@eu-north-1",
+  "bedrock/minimax-m2.5@eu-south-1",
+  "bedrock/minimax-m2.5@eu-west-1",
+  "coding/gemini-2.5-flash@europe-central2",
+  "coding/gemini-2.5-flash@europe-north1",
+  "coding/gemini-2.5-flash@europe-west1",
+  "coding/gemini-2.5-flash@europe-west4",
+  "coding/gemini-2.5-flash@europe-west8",
+  "coding/gemini-2.5-pro@europe-central2",
+  "coding/gemini-2.5-pro@europe-north1",
+  "coding/gemini-2.5-pro@europe-west1",
+  "coding/gemini-2.5-pro@europe-west4",
+  "coding/gemini-2.5-pro@europe-west8",
+  "inceptron/glm-5.2",
+  "inceptron/kimi-k2.6",
+  "inceptron/kimi-k2.7-Code",
+  "inceptron/minimax-m2.5",
+  "lyceum/deepseek-v4-flash-0731",
+  "lyceum/deepseek-v4-pro",
+  "lyceum/deepseek-v4.1-flash",
+  "lyceum/glm-5.3",
+  "lyceum/glm-5.3-flash",
+  "lyceum/kimi-k3",
+  "mistral/codestral-latest",
+  "mistral/devstral-latest",
+  "mistral/devstral-small-latest",
+  "mistral/glm-5-2",
+  "mistral/leanstral-1-5",
+  "mistral/mistral-large-latest",
+  "mistral/mistral-medium-3-5",
+  "mistral/mistral-medium-latest",
+  "mistral/mistral-small-2503",
+  "mistral/mistral-small-2603",
+  "mistral/mistral-small-latest",
+  "mistral/open-mistral-7b",
+  "nebius/glm-5.2",
+  "nebius/google/gemma-3-27b-it",
+  "nebius/kimi-k3",
+  "nebius/meta-llama/Llama-3.3-70B-Instruct",
+  "nebius/openai/gpt-oss-120b",
+  "nebius/qwen/qwen3-235b-a22b-instruct-2507",
+  "nebius/qwen/qwen3-30b-a3b-instruct-2507",
+  "nebius/qwen/qwen3-32b",
+  "nebius/qwen/qwen3-next-80b-a3b-thinking",
+  "nebius/zai-org/glm-5.1",
+  "scaleway/deepseek-v4-flash-0731",
+  "scaleway/glm-5.2",
+  "scaleway/gpt-oss-120b",
+  "sference/deepseek-v4-flash-0731",
+  "sference/deepseek-v4.1-flash",
+  "sference/glm-5.2",
+  "sference/glm-5.3",
+  "sference/glm-5.3-flash",
+  "sference/kimi-k3",
+  "tensorx/deepseek-v4-flash-0731",
+  "tensorx/deepseek-v4-pro-0424",
+  "tensorx/deepseek-v4-pro-0813",
+  "tensorx/deepseek-v4.1-flash",
+  "tensorx/glm-5.2",
+  "tensorx/glm-5.3",
+  "tensorx/kimi-k2.7-code",
+  "tensorx/kimi-k3",
+  "tensorx/minimax-m3",
+  "tensorx/qwen3.8",
+  "tensorx/qwen3.8-2.4t-a95b",
+  "tensorx/qwen3.8-flash-next",
+  "vertex/claude-fable-5.1@eu",
+  "vertex/claude-fable-5@eu",
+  "vertex/claude-haiku-4-5@europe-west1",
+  "vertex/claude-opus-4-5@europe-west1",
+  "vertex/claude-opus-4-6@europe-west1",
+  "vertex/claude-opus-4-7@eu",
+  "vertex/claude-opus-4-8@eu",
+  "vertex/claude-opus-5@eu",
+  "vertex/claude-sonnet-4-5@europe-west1",
+  "vertex/claude-sonnet-4-6@europe-west1",
+  "vertex/claude-sonnet-4@europe-west1",
+  "vertex/claude-sonnet-5@eu",
+  "vertex/gemini-2.5-flash-lite@europe-central2",
+  "vertex/gemini-2.5-flash-lite@europe-north1",
+  "vertex/gemini-2.5-flash-lite@europe-west1",
+  "vertex/gemini-2.5-flash-lite@europe-west4",
+  "vertex/gemini-2.5-flash-lite@europe-west8",
+  "vertex/gemini-2.5-flash@europe-central2",
+  "vertex/gemini-2.5-flash@europe-north1",
+  "vertex/gemini-2.5-flash@europe-west1",
+  "vertex/gemini-2.5-flash@europe-west4",
+  "vertex/gemini-2.5-flash@europe-west8",
+  "vertex/gemini-2.5-pro@europe-central2",
+  "vertex/gemini-2.5-pro@europe-north1",
+  "vertex/gemini-2.5-pro@europe-west1",
+  "vertex/gemini-2.5-pro@europe-west4",
+  "vertex/gemini-2.5-pro@europe-west8",
+  "vertex/gemini-3.1-flash-lite@eu",
+  "vertex/gemini-3.5-flash-lite@eu",
+  "vertex/gemini-3.5-flash@eu",
+  "vertex/gemini-3.7-flash@eu",
+  "vertex/gemini-3.8-flash@eu",
+]
+
+[model_settings."azure/gpt-4.1-mini@francecentral"]
+context_window = 1047576
+max_output_tokens = 32768
+reasoning = false
+
+[model_settings."azure/gpt-4.1-nano@francecentral"]
+context_window = 1047576
+max_output_tokens = 32768
+reasoning = false
+
+[model_settings."azure/gpt-4.1-nano@germanywestcentral"]
+context_window = 1047576
+max_output_tokens = 32768
+reasoning = false
+
+[model_settings."azure/gpt-4.1-nano@swedencentral"]
+context_window = 1047576
+max_output_tokens = 32768
+reasoning = false
+
+[model_settings."azure/gpt-4.1-nano@westeurope"]
+context_window = 1047576
+max_output_tokens = 32768
+reasoning = false
+
+[model_settings."azure/gpt-4.1@francecentral"]
+context_window = 1047576
+max_output_tokens = 32768
+reasoning = false
+
+[model_settings."azure/gpt-4.1@germanywestcentral"]
+context_window = 1047576
+max_output_tokens = 32768
+reasoning = false
+
+[model_settings."azure/gpt-4.1@swedencentral"]
+context_window = 1047576
+max_output_tokens = 32768
+reasoning = false
+
+[model_settings."azure/gpt-4.1@westeurope"]
+context_window = 1047576
+max_output_tokens = 32768
+reasoning = false
+
+[model_settings."azure/gpt-4o-mini@germanywestcentral"]
+context_window = 128000
+max_output_tokens = 16000
+reasoning = false
+
+[model_settings."azure/gpt-4o-mini@swedencentral"]
+context_window = 128000
+max_output_tokens = 16000
+reasoning = false
+
+[model_settings."azure/gpt-4o-mini@westeurope"]
+context_window = 128000
+max_output_tokens = 16000
+reasoning = false
+
+[model_settings."azure/gpt-5-mini@francecentral"]
+context_window = 200000
+max_output_tokens = 100000
+reasoning = true
+reasoning_levels = ["minimal", "low", "medium", "high"]
+
+[model_settings."azure/gpt-5-mini@germanywestcentral"]
+context_window = 200000
+max_output_tokens = 100000
+reasoning = true
+reasoning_levels = ["minimal", "low", "medium", "high"]
+
+[model_settings."azure/gpt-5-mini@swedencentral"]
+context_window = 200000
+max_output_tokens = 100000
+reasoning = true
+reasoning_levels = ["minimal", "low", "medium", "high"]
+
+[model_settings."azure/gpt-5-mini@westeurope"]
+context_window = 200000
+max_output_tokens = 100000
+reasoning = true
+reasoning_levels = ["minimal", "low", "medium", "high"]
+
+[model_settings."azure/gpt-5-nano@francecentral"]
+context_window = 200000
+max_output_tokens = 100000
+reasoning = true
+reasoning_levels = ["minimal", "low", "medium", "high"]
+
+[model_settings."azure/gpt-5-nano@germanywestcentral"]
+context_window = 200000
+max_output_tokens = 100000
+reasoning = true
+reasoning_levels = ["minimal", "low", "medium", "high"]
+
+[model_settings."azure/gpt-5-nano@swedencentral"]
+context_window = 200000
+max_output_tokens = 100000
+reasoning = true
+reasoning_levels = ["minimal", "low", "medium", "high"]
+
+[model_settings."azure/gpt-5-nano@westeurope"]
+context_window = 200000
+max_output_tokens = 100000
+reasoning = true
+reasoning_levels = ["minimal", "low", "medium", "high"]
+
+[model_settings."azure/gpt-5.1@francecentral"]
+context_window = 400000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["off", "low", "medium", "high"]
+
+[model_settings."azure/gpt-5.1@swedencentral"]
+context_window = 400000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["off", "low", "medium", "high"]
+
+[model_settings."azure/gpt-5.4@francecentral"]
+context_window = 1050000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["off", "low", "medium", "high", "xhigh"]
+
+[model_settings."azure/gpt-5.4@germanywestcentral"]
+context_window = 1050000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["off", "low", "medium", "high", "xhigh"]
+
+[model_settings."azure/gpt-5.4@swedencentral"]
+context_window = 1050000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["off", "low", "medium", "high", "xhigh"]
+
+[model_settings."azure/gpt-5.4@westeurope"]
+context_window = 1050000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["off", "low", "medium", "high", "xhigh"]
+
+[model_settings."azure/gpt-5.5@germanywestcentral"]
+context_window = 1050000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["off", "low", "medium", "high", "xhigh"]
+
+[model_settings."azure/gpt-5.5@swedencentral"]
+context_window = 1050000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["off", "low", "medium", "high", "xhigh"]
+
+[model_settings."azure/gpt-5.5@westeurope"]
+context_window = 1050000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["off", "low", "medium", "high", "xhigh"]
+
+[model_settings."azure/gpt-5.6-luna@francecentral"]
+context_window = 1050000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["off", "low", "medium", "high", "xhigh"]
+
+[model_settings."azure/gpt-5.6-luna@germanywestcentral"]
+context_window = 1050000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["off", "low", "medium", "high", "xhigh"]
+
+[model_settings."azure/gpt-5.6-luna@swedencentral"]
+context_window = 1050000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["off", "low", "medium", "high", "xhigh"]
+
+[model_settings."azure/gpt-5.6-luna@westeurope"]
+context_window = 1050000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["off", "low", "medium", "high", "xhigh"]
+
+[model_settings."azure/gpt-5.6-sol@francecentral"]
+context_window = 1050000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["off", "low", "medium", "high", "xhigh"]
+
+[model_settings."azure/gpt-5.6-sol@germanywestcentral"]
+context_window = 1050000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["off", "low", "medium", "high", "xhigh"]
+
+[model_settings."azure/gpt-5.6-sol@swedencentral"]
+context_window = 1050000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["off", "low", "medium", "high", "xhigh"]
+
+[model_settings."azure/gpt-5.6-sol@westeurope"]
+context_window = 1050000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["off", "low", "medium", "high", "xhigh"]
+
+[model_settings."azure/gpt-5.6-terra@francecentral"]
+context_window = 1050000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["off", "low", "medium", "high", "xhigh"]
+
+[model_settings."azure/gpt-5.6-terra@germanywestcentral"]
+context_window = 1050000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["off", "low", "medium", "high", "xhigh"]
+
+[model_settings."azure/gpt-5.6-terra@swedencentral"]
+context_window = 1050000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["off", "low", "medium", "high", "xhigh"]
+
+[model_settings."azure/gpt-5.6-terra@westeurope"]
+context_window = 1050000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["off", "low", "medium", "high", "xhigh"]
+
+[model_settings."azure/gpt-5@francecentral"]
+context_window = 400000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["minimal", "low", "medium", "high"]
+
+[model_settings."azure/gpt-5@germanywestcentral"]
+context_window = 400000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["minimal", "low", "medium", "high"]
+
+[model_settings."azure/gpt-5@swedencentral"]
+context_window = 400000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["minimal", "low", "medium", "high"]
+
+[model_settings."azure/gpt-5@westeurope"]
+context_window = 400000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["minimal", "low", "medium", "high"]
+
+[model_settings."azure/gpt-6-luna@francecentral"]
+context_window = 1050000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["off", "low", "medium", "high", "xhigh"]
+
+[model_settings."azure/gpt-6-luna@germanywestcentral"]
+context_window = 1050000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["off", "low", "medium", "high", "xhigh"]
+
+[model_settings."azure/gpt-6-luna@swedencentral"]
+context_window = 1050000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["off", "low", "medium", "high", "xhigh"]
+
+[model_settings."azure/gpt-6-luna@westeurope"]
+context_window = 1050000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["off", "low", "medium", "high", "xhigh"]
+
+[model_settings."azure/gpt-6-sol@francecentral"]
+context_window = 1050000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["off", "low", "medium", "high", "xhigh"]
+
+[model_settings."azure/gpt-6-sol@germanywestcentral"]
+context_window = 1050000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["off", "low", "medium", "high", "xhigh"]
+
+[model_settings."azure/gpt-6-sol@swedencentral"]
+context_window = 1050000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["off", "low", "medium", "high", "xhigh"]
+
+[model_settings."azure/gpt-6-sol@westeurope"]
+context_window = 1050000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["off", "low", "medium", "high", "xhigh"]
+
+[model_settings."azure/o4-mini@francecentral"]
+context_window = 200000
+max_output_tokens = 100000
+reasoning = true
+reasoning_levels = ["low", "medium", "high"]
+
+[model_settings."azure/o4-mini@germanywestcentral"]
+context_window = 200000
+max_output_tokens = 100000
+reasoning = true
+reasoning_levels = ["low", "medium", "high"]
+
+[model_settings."azure/o4-mini@swedencentral"]
+context_window = 200000
+max_output_tokens = 100000
+reasoning = true
+reasoning_levels = ["low", "medium", "high"]
+
+[model_settings."azure/o4-mini@westeurope"]
+context_window = 200000
+max_output_tokens = 100000
+reasoning = true
+reasoning_levels = ["low", "medium", "high"]
+
+[model_settings."bedrock/claude-haiku-4-5@eu-central-1"]
+context_window = 200000
+max_output_tokens = 64000
+reasoning = true
+
+[model_settings."bedrock/claude-haiku-4-5@eu-north-1"]
+context_window = 200000
+max_output_tokens = 64000
+reasoning = true
+
+[model_settings."bedrock/claude-haiku-4-5@eu-west-1"]
+context_window = 200000
+max_output_tokens = 64000
+reasoning = true
+
+[model_settings."bedrock/claude-haiku-4-5@eu-west-3"]
+context_window = 200000
+max_output_tokens = 64000
+reasoning = true
+
+[model_settings."bedrock/claude-opus-4-5@eu-central-1"]
+context_window = 200000
+max_output_tokens = 64000
+reasoning = true
+reasoning_levels = ["low", "medium", "high"]
+
+[model_settings."bedrock/claude-opus-4-5@eu-north-1"]
+context_window = 200000
+max_output_tokens = 64000
+reasoning = true
+reasoning_levels = ["low", "medium", "high"]
+
+[model_settings."bedrock/claude-opus-4-5@eu-west-1"]
+context_window = 200000
+max_output_tokens = 64000
+reasoning = true
+reasoning_levels = ["low", "medium", "high"]
+
+[model_settings."bedrock/claude-opus-4-5@eu-west-3"]
+context_window = 200000
+max_output_tokens = 64000
+reasoning = true
+reasoning_levels = ["low", "medium", "high"]
+
+[model_settings."bedrock/claude-opus-4-7@eu-central-1"]
+context_window = 1000000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["low", "medium", "high", "xhigh"]
+
+[model_settings."bedrock/claude-opus-4-7@eu-north-1"]
+context_window = 1000000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["low", "medium", "high", "xhigh"]
+
+[model_settings."bedrock/claude-opus-4-7@eu-west-1"]
+context_window = 1000000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["low", "medium", "high", "xhigh"]
+
+[model_settings."bedrock/claude-opus-4-7@eu-west-3"]
+context_window = 1000000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["low", "medium", "high", "xhigh"]
+
+[model_settings."bedrock/claude-opus-4-8@eu-central-1"]
+context_window = 1000000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["low", "medium", "high", "xhigh"]
+
+[model_settings."bedrock/claude-opus-4-8@eu-north-1"]
+context_window = 1000000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["low", "medium", "high", "xhigh"]
+
+[model_settings."bedrock/claude-opus-4-8@eu-west-1"]
+context_window = 1000000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["low", "medium", "high", "xhigh"]
+
+[model_settings."bedrock/claude-opus-4-8@eu-west-3"]
+context_window = 1000000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["low", "medium", "high", "xhigh"]
+
+[model_settings."bedrock/claude-opus-5-5@eu-central-1"]
+context_window = 1000000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["low", "medium", "high", "xhigh"]
+
+[model_settings."bedrock/claude-opus-5-5@eu-north-1"]
+context_window = 1000000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["low", "medium", "high", "xhigh"]
+
+[model_settings."bedrock/claude-opus-5-5@eu-west-1"]
+context_window = 1000000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["low", "medium", "high", "xhigh"]
+
+[model_settings."bedrock/claude-opus-5-5@eu-west-3"]
+context_window = 1000000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["low", "medium", "high", "xhigh"]
+
+[model_settings."bedrock/claude-opus-5@eu-central-1"]
+context_window = 1000000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["low", "medium", "high", "xhigh"]
+
+[model_settings."bedrock/claude-opus-5@eu-north-1"]
+context_window = 1000000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["low", "medium", "high", "xhigh"]
+
+[model_settings."bedrock/claude-opus-5@eu-west-1"]
+context_window = 1000000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["low", "medium", "high", "xhigh"]
+
+[model_settings."bedrock/claude-opus-5@eu-west-3"]
+context_window = 1000000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["low", "medium", "high", "xhigh"]
+
+[model_settings."bedrock/claude-sonnet-4-5@eu-central-1"]
+context_window = 1000000
+max_output_tokens = 64000
+reasoning = true
+
+[model_settings."bedrock/claude-sonnet-4-5@eu-north-1"]
+context_window = 1000000
+max_output_tokens = 64000
+reasoning = true
+
+[model_settings."bedrock/claude-sonnet-4-5@eu-west-1"]
+context_window = 1000000
+max_output_tokens = 64000
+reasoning = true
+
+[model_settings."bedrock/claude-sonnet-4-5@eu-west-3"]
+context_window = 1000000
+max_output_tokens = 64000
+reasoning = true
+
+[model_settings."bedrock/claude-sonnet-4-6@eu-central-1"]
+context_window = 1000000
+max_output_tokens = 64000
+reasoning = true
+reasoning_levels = ["low", "medium", "high"]
+
+[model_settings."bedrock/claude-sonnet-4-6@eu-north-1"]
+context_window = 1000000
+max_output_tokens = 64000
+reasoning = true
+reasoning_levels = ["low", "medium", "high"]
+
+[model_settings."bedrock/claude-sonnet-4-6@eu-west-1"]
+context_window = 1000000
+max_output_tokens = 64000
+reasoning = true
+reasoning_levels = ["low", "medium", "high"]
+
+[model_settings."bedrock/claude-sonnet-4-6@eu-west-3"]
+context_window = 1000000
+max_output_tokens = 64000
+reasoning = true
+reasoning_levels = ["low", "medium", "high"]
+
+[model_settings."bedrock/claude-sonnet-4@eu-central-1"]
+context_window = 1000000
+max_output_tokens = 64000
+reasoning = true
+
+[model_settings."bedrock/claude-sonnet-4@eu-north-1"]
+context_window = 1000000
+max_output_tokens = 64000
+reasoning = true
+
+[model_settings."bedrock/claude-sonnet-4@eu-west-1"]
+context_window = 1000000
+max_output_tokens = 64000
+reasoning = true
+
+[model_settings."bedrock/claude-sonnet-4@eu-west-3"]
+context_window = 1000000
+max_output_tokens = 64000
+reasoning = true
+
+[model_settings."bedrock/claude-sonnet-5@eu-central-1"]
+context_window = 1000000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["low", "medium", "high", "xhigh"]
+
+[model_settings."bedrock/claude-sonnet-5@eu-north-1"]
+context_window = 1000000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["low", "medium", "high", "xhigh"]
+
+[model_settings."bedrock/claude-sonnet-5@eu-west-1"]
+context_window = 1000000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["low", "medium", "high", "xhigh"]
+
+[model_settings."bedrock/kimi-k2.5@eu-north-1"]
+context_window = 128000
+max_output_tokens = 16000
+reasoning = true
+
+[model_settings."bedrock/minimax-m2.5@eu-central-1"]
+context_window = 128000
+max_output_tokens = 16000
+reasoning = true
+
+[model_settings."bedrock/minimax-m2.5@eu-north-1"]
+context_window = 128000
+max_output_tokens = 16000
+reasoning = true
+
+[model_settings."bedrock/minimax-m2.5@eu-south-1"]
+context_window = 128000
+max_output_tokens = 16000
+reasoning = true
+
+[model_settings."bedrock/minimax-m2.5@eu-west-1"]
+context_window = 128000
+max_output_tokens = 16000
+reasoning = true
+
+[model_settings."coding/gemini-2.5-flash@europe-central2"]
+context_window = 1048576
+max_output_tokens = 65535
+reasoning = true
+
+[model_settings."coding/gemini-2.5-flash@europe-north1"]
+context_window = 1048576
+max_output_tokens = 65535
+reasoning = true
+
+[model_settings."coding/gemini-2.5-flash@europe-west1"]
+context_window = 1048576
+max_output_tokens = 65535
+reasoning = true
+
+[model_settings."coding/gemini-2.5-flash@europe-west4"]
+context_window = 1048576
+max_output_tokens = 65535
+reasoning = true
+
+[model_settings."coding/gemini-2.5-flash@europe-west8"]
+context_window = 1048576
+max_output_tokens = 65535
+reasoning = true
+
+[model_settings."coding/gemini-2.5-pro@europe-central2"]
+context_window = 1048576
+max_output_tokens = 65535
+reasoning = true
+
+[model_settings."coding/gemini-2.5-pro@europe-north1"]
+context_window = 1048576
+max_output_tokens = 65535
+reasoning = true
+
+[model_settings."coding/gemini-2.5-pro@europe-west1"]
+context_window = 1048576
+max_output_tokens = 65535
+reasoning = true
+
+[model_settings."coding/gemini-2.5-pro@europe-west4"]
+context_window = 1048576
+max_output_tokens = 65535
+reasoning = true
+
+[model_settings."coding/gemini-2.5-pro@europe-west8"]
+context_window = 1048576
+max_output_tokens = 65535
+reasoning = true
+
+[model_settings."inceptron/glm-5.2"]
+context_window = 1000000
+max_output_tokens = 1000000
+reasoning = true
+reasoning_levels = ["high"]
+
+[model_settings."inceptron/kimi-k2.6"]
+context_window = 262144
+max_output_tokens = 262144
+reasoning = true
+
+[model_settings."inceptron/kimi-k2.7-Code"]
+context_window = 256000
+max_output_tokens = 256000
+reasoning = true
+
+[model_settings."inceptron/minimax-m2.5"]
+context_window = 196608
+max_output_tokens = 196608
+reasoning = true
+
+[model_settings."lyceum/deepseek-v4-flash-0731"]
+context_window = 1048576
+max_output_tokens = 65536
+reasoning = true
+reasoning_levels = ["high"]
+
+[model_settings."lyceum/deepseek-v4-pro"]
+context_window = 1048576
+max_output_tokens = 65536
+reasoning = true
+reasoning_levels = ["low", "high"]
+
+[model_settings."lyceum/deepseek-v4.1-flash"]
+context_window = 1048576
+max_output_tokens = 384000
+reasoning = true
+reasoning_levels = ["low", "high"]
+
+[model_settings."lyceum/glm-5.3"]
+context_window = 1048576
+max_output_tokens = 65536
+reasoning = true
+reasoning_levels = ["low", "high"]
+
+[model_settings."lyceum/glm-5.3-flash"]
+context_window = 1048576
+max_output_tokens = 65536
+reasoning = true
+reasoning_levels = ["low", "high"]
+
+[model_settings."lyceum/kimi-k3"]
+context_window = 1048576
+max_output_tokens = 65536
+reasoning = true
+reasoning_levels = ["low", "high"]
+
+[model_settings."mistral/codestral-latest"]
+context_window = 131072
+max_output_tokens = 4096
+reasoning = false
+
+[model_settings."mistral/devstral-latest"]
+context_window = 256000
+max_output_tokens = 256000
+reasoning = false
+
+[model_settings."mistral/devstral-small-latest"]
+context_window = 131072
+reasoning = false
+
+[model_settings."mistral/glm-5-2"]
+context_window = 1000000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["off", "minimal", "low", "medium", "high", "xhigh"]
+
+[model_settings."mistral/leanstral-1-5"]
+context_window = 262144
+max_output_tokens = 32768
+reasoning = false
+
+[model_settings."mistral/mistral-large-latest"]
+context_window = 131072
+max_output_tokens = 131072
+reasoning = false
+
+[model_settings."mistral/mistral-medium-3-5"]
+context_window = 262144
+max_output_tokens = 209715
+reasoning = true
+reasoning_levels = ["off", "high"]
+
+[model_settings."mistral/mistral-medium-latest"]
+context_window = 131072
+max_output_tokens = 131072
+reasoning = true
+reasoning_levels = ["off", "high"]
+
+[model_settings."mistral/mistral-small-2503"]
+context_window = 32768
+max_output_tokens = 32768
+reasoning = false
+
+[model_settings."mistral/mistral-small-2603"]
+context_window = 256000
+max_output_tokens = 256000
+reasoning = true
+reasoning_levels = ["off", "high"]
+
+[model_settings."mistral/mistral-small-latest"]
+context_window = 256000
+max_output_tokens = 256000
+reasoning = true
+reasoning_levels = ["off", "high"]
+
+[model_settings."mistral/open-mistral-7b"]
+context_window = 32768
+max_output_tokens = 8000
+reasoning = false
+
+[model_settings."nebius/glm-5.2"]
+context_window = 1000000
+max_output_tokens = 131072
+reasoning = true
+reasoning_levels = ["high"]
+
+[model_settings."nebius/google/gemma-3-27b-it"]
+context_window = 128000
+max_output_tokens = 8192
+reasoning = false
+
+[model_settings."nebius/kimi-k3"]
+context_window = 1048576
+max_output_tokens = 131072
+reasoning = true
+reasoning_levels = ["low", "high"]
+
+[model_settings."nebius/meta-llama/Llama-3.3-70B-Instruct"]
+context_window = 128000
+max_output_tokens = 16384
+reasoning = false
+
+[model_settings."nebius/openai/gpt-oss-120b"]
+context_window = 131000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["low", "medium", "high"]
+
+[model_settings."nebius/qwen/qwen3-235b-a22b-instruct-2507"]
+context_window = 128000
+max_output_tokens = 65536
+reasoning = false
+
+[model_settings."nebius/qwen/qwen3-30b-a3b-instruct-2507"]
+context_window = 128000
+max_output_tokens = 128000
+reasoning = false
+
+[model_settings."nebius/qwen/qwen3-32b"]
+context_window = 128000
+max_output_tokens = 16384
+reasoning = true
+
+[model_settings."nebius/qwen/qwen3-next-80b-a3b-thinking"]
+context_window = 128000
+max_output_tokens = 32768
+reasoning = true
+
+[model_settings."nebius/zai-org/glm-5.1"]
+context_window = 200000
+max_output_tokens = 131072
+reasoning = true
+
+[model_settings."scaleway/deepseek-v4-flash-0731"]
+context_window = 256000
+max_output_tokens = 32768
+reasoning = true
+reasoning_levels = ["high"]
+
+[model_settings."scaleway/glm-5.2"]
+context_window = 256000
+max_output_tokens = 32768
+reasoning = true
+reasoning_levels = ["high"]
+
+[model_settings."scaleway/gpt-oss-120b"]
+context_window = 128000
+max_output_tokens = 32768
+reasoning = true
+reasoning_levels = ["low", "medium", "high"]
+
+[model_settings."sference/deepseek-v4-flash-0731"]
+context_window = 1048576
+max_output_tokens = 131072
+reasoning = true
+reasoning_levels = ["high"]
+
+[model_settings."sference/deepseek-v4.1-flash"]
+context_window = 1048576
+max_output_tokens = 393216
+reasoning = true
+reasoning_levels = ["low", "high"]
+
+[model_settings."sference/glm-5.2"]
+context_window = 1048576
+max_output_tokens = 131072
+reasoning = true
+reasoning_levels = ["high"]
+
+[model_settings."sference/glm-5.3"]
+context_window = 1048576
+max_output_tokens = 1048576
+reasoning = true
+reasoning_levels = ["low", "high"]
+
+[model_settings."sference/glm-5.3-flash"]
+context_window = 1000000
+max_output_tokens = 262144
+reasoning = true
+reasoning_levels = ["low", "high"]
+
+[model_settings."sference/kimi-k3"]
+context_window = 1048576
+max_output_tokens = 262144
+reasoning = true
+reasoning_levels = ["low", "high"]
+
+[model_settings."tensorx/deepseek-v4-flash-0731"]
+context_window = 1048576
+max_output_tokens = 1048576
+reasoning = true
+reasoning_levels = ["high"]
+
+[model_settings."tensorx/deepseek-v4-pro-0424"]
+context_window = 1048576
+max_output_tokens = 1048576
+reasoning = true
+
+[model_settings."tensorx/deepseek-v4-pro-0813"]
+context_window = 1048576
+max_output_tokens = 1048576
+reasoning = true
+reasoning_levels = ["low", "high"]
+
+[model_settings."tensorx/deepseek-v4.1-flash"]
+context_window = 1048576
+max_output_tokens = 393216
+reasoning = true
+reasoning_levels = ["low", "high"]
+
+[model_settings."tensorx/glm-5.2"]
+context_window = 1048576
+max_output_tokens = 1048576
+reasoning = true
+reasoning_levels = ["high"]
+
+[model_settings."tensorx/glm-5.3"]
+context_window = 1048576
+max_output_tokens = 1048576
+reasoning = true
+reasoning_levels = ["low", "high"]
+
+[model_settings."tensorx/kimi-k2.7-code"]
+context_window = 262144
+max_output_tokens = 262144
+reasoning = true
+
+[model_settings."tensorx/kimi-k3"]
+context_window = 1048576
+max_output_tokens = 262144
+reasoning = true
+reasoning_levels = ["low", "high"]
+
+[model_settings."tensorx/minimax-m3"]
+context_window = 1048576
+max_output_tokens = 1048576
+reasoning = true
+
+[model_settings."tensorx/qwen3.8"]
+context_window = 1000000
+max_output_tokens = 262144
+reasoning = true
+
+[model_settings."tensorx/qwen3.8-2.4t-a95b"]
+context_window = 1000000
+max_output_tokens = 262144
+reasoning = true
+reasoning_levels = ["low", "medium", "xhigh"]
+
+[model_settings."tensorx/qwen3.8-flash-next"]
+context_window = 262144
+max_output_tokens = 262144
+reasoning = true
+reasoning_levels = ["low", "medium", "xhigh"]
+
+[model_settings."vertex/claude-fable-5.1@eu"]
+context_window = 1000000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["low", "medium", "high", "xhigh"]
+
+[model_settings."vertex/claude-fable-5@eu"]
+context_window = 1000000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["low", "medium", "high", "xhigh"]
+
+[model_settings."vertex/claude-haiku-4-5@europe-west1"]
+context_window = 200000
+max_output_tokens = 64000
+reasoning = true
+
+[model_settings."vertex/claude-opus-4-5@europe-west1"]
+context_window = 200000
+max_output_tokens = 64000
+reasoning = true
+reasoning_levels = ["low", "medium", "high"]
+
+[model_settings."vertex/claude-opus-4-6@europe-west1"]
+context_window = 1000000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["low", "medium", "high"]
+
+[model_settings."vertex/claude-opus-4-7@eu"]
+context_window = 1000000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["low", "medium", "high", "xhigh"]
+
+[model_settings."vertex/claude-opus-4-8@eu"]
+context_window = 1000000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["low", "medium", "high", "xhigh"]
+
+[model_settings."vertex/claude-opus-5@eu"]
+context_window = 1000000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["low", "medium", "high", "xhigh"]
+
+[model_settings."vertex/claude-sonnet-4-5@europe-west1"]
+context_window = 1000000
+max_output_tokens = 64000
+reasoning = true
+
+[model_settings."vertex/claude-sonnet-4-6@europe-west1"]
+context_window = 1000000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["low", "medium", "high"]
+
+[model_settings."vertex/claude-sonnet-4@europe-west1"]
+context_window = 1000000
+max_output_tokens = 64000
+reasoning = true
+
+[model_settings."vertex/claude-sonnet-5@eu"]
+context_window = 1000000
+max_output_tokens = 128000
+reasoning = true
+reasoning_levels = ["low", "medium", "high", "xhigh"]
+
+[model_settings."vertex/gemini-2.5-flash-lite@europe-central2"]
+context_window = 1048576
+max_output_tokens = 65535
+reasoning = true
+
+[model_settings."vertex/gemini-2.5-flash-lite@europe-north1"]
+context_window = 1048576
+max_output_tokens = 65535
+reasoning = true
+
+[model_settings."vertex/gemini-2.5-flash-lite@europe-west1"]
+context_window = 1048576
+max_output_tokens = 65535
+reasoning = true
+
+[model_settings."vertex/gemini-2.5-flash-lite@europe-west4"]
+context_window = 1048576
+max_output_tokens = 65535
+reasoning = true
+
+[model_settings."vertex/gemini-2.5-flash-lite@europe-west8"]
+context_window = 1048576
+max_output_tokens = 65535
+reasoning = true
+
+[model_settings."vertex/gemini-2.5-flash@europe-central2"]
+context_window = 1048576
+max_output_tokens = 65535
+reasoning = true
+
+[model_settings."vertex/gemini-2.5-flash@europe-north1"]
+context_window = 1048576
+max_output_tokens = 65535
+reasoning = true
+
+[model_settings."vertex/gemini-2.5-flash@europe-west1"]
+context_window = 1048576
+max_output_tokens = 65535
+reasoning = true
+
+[model_settings."vertex/gemini-2.5-flash@europe-west4"]
+context_window = 1048576
+max_output_tokens = 65535
+reasoning = true
+
+[model_settings."vertex/gemini-2.5-flash@europe-west8"]
+context_window = 1048576
+max_output_tokens = 65535
+reasoning = true
+
+[model_settings."vertex/gemini-2.5-pro@europe-central2"]
+context_window = 1048576
+max_output_tokens = 65535
+reasoning = true
+
+[model_settings."vertex/gemini-2.5-pro@europe-north1"]
+context_window = 1048576
+max_output_tokens = 65535
+reasoning = true
+
+[model_settings."vertex/gemini-2.5-pro@europe-west1"]
+context_window = 1048576
+max_output_tokens = 65535
+reasoning = true
+
+[model_settings."vertex/gemini-2.5-pro@europe-west4"]
+context_window = 1048576
+max_output_tokens = 65535
+reasoning = true
+
+[model_settings."vertex/gemini-2.5-pro@europe-west8"]
+context_window = 1048576
+max_output_tokens = 65535
+reasoning = true
+
+[model_settings."vertex/gemini-3.1-flash-lite@eu"]
+context_window = 1048576
+max_output_tokens = 65535
+reasoning = true
+reasoning_levels = ["minimal", "low", "medium", "high"]
+
+[model_settings."vertex/gemini-3.5-flash-lite@eu"]
+context_window = 1048576
+max_output_tokens = 65535
+reasoning = true
+reasoning_levels = ["minimal", "low", "medium", "high"]
+
+[model_settings."vertex/gemini-3.5-flash@eu"]
+context_window = 1048576
+max_output_tokens = 65535
+reasoning = true
+reasoning_levels = ["minimal", "low", "medium", "high"]
+
+[model_settings."vertex/gemini-3.7-flash@eu"]
+context_window = 1048576
+max_output_tokens = 65535
+reasoning = true
+reasoning_levels = ["low", "medium", "high"]
+
+[model_settings."vertex/gemini-3.8-flash@eu"]
+context_window = 1048576
+max_output_tokens = 65535
+reasoning = true
+reasoning_levels = ["low", "medium", "high"]
